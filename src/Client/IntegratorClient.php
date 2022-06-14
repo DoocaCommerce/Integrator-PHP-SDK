@@ -37,8 +37,6 @@ class IntegratorClient
             ],
         );
 
-        dd($response->getBody()->getContents());
-
         return Response::from($response);
     }
 }
