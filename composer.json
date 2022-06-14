@@ -1,0 +1,21 @@
+{
+    "name": "doocacommerce/integrator",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DoocaCommerce\\Integrator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Gomes do Nascimento",
+            "email": "rodrigo@dooca.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0.1"
+    }
+}
