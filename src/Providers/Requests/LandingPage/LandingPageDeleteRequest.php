@@ -7,8 +7,7 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class LandingPageDeleteRequest implements Request
 {
     public function __construct(
-        protected int $id,
-        private string $token
+        protected int $id
     ) {}
 
     public function toArray(): array
@@ -36,7 +35,6 @@ class LandingPageDeleteRequest implements Request
     public function getHeader(): array
     {
         return [
-            'authorization' => $this->token,
             'dc-action'  => 'delete'
         ];
     }
