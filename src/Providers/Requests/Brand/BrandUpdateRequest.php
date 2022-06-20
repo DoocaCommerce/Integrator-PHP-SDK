@@ -21,8 +21,7 @@ class BrandUpdateRequest implements Request
         protected ?array $banner,
         protected ?bool $active,
         protected ?string $created_at,
-        protected ?string $updated_at,
-        private   string $token
+        protected ?string $updated_at
     ) {}
 
     public function toArray(): array
@@ -64,7 +63,6 @@ class BrandUpdateRequest implements Request
     public function getHeader(): array
     {
         return [
-            'authorization' => $this->token,
             'dc-action'  => 'update'
         ];
     }
