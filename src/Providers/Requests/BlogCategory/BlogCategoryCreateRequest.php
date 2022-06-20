@@ -19,8 +19,7 @@ class BlogCategoryCreateRequest implements Request
         protected ?int $position,
         protected ?bool $active,
         protected ?string $created_at,
-        protected ?string $updated_at,
-        private   string $token
+        protected ?string $updated_at
     ) {}
 
     public function toArray(): array
@@ -60,8 +59,7 @@ class BlogCategoryCreateRequest implements Request
     public function getHeader(): array
     {
         return [
-            'authorization' => $this->token,
-            'dc-action'  => 'update'
+            'dc-action'  => 'insert'
         ];
     }
 }

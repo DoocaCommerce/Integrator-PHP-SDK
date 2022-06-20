@@ -7,8 +7,7 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class BlogCategoryDeleteRequest implements Request
 {
     public function __construct(
-        protected int $id,
-        private string $token
+        protected int $id
     ) {}
 
     public function toArray(): array
@@ -36,8 +35,7 @@ class BlogCategoryDeleteRequest implements Request
     public function getHeader(): array
     {
         return [
-            'authorization' => $this->token,
-            'dc-action'  => 'update'
+            'dc-action'  => 'delete'
         ];
     }
 }
