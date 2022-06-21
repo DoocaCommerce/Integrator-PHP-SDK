@@ -1,10 +1,10 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\BlogCategory;
+namespace DoocaCommerce\Integrator\Providers\Requests\Brand;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class BlogCategoryDeleteRequest implements Request
+class BrandDeleteRequest implements Request
 {
     public function __construct(
         protected int $id
@@ -24,7 +24,7 @@ class BlogCategoryDeleteRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/blog-category';
+        return 'integrator/import/brand';
     }
 
     public function getBody(): array
