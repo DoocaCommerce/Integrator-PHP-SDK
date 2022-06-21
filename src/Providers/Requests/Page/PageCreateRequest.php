@@ -1,23 +1,23 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\BlogCategory;
+namespace DoocaCommerce\Integrator\Providers\Requests\Page;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class BlogCategoryUpdateRequest implements Request
+class PageCreateRequest implements Request
 {
     public function __construct(
         protected int $id,
         protected ?string $name,
         protected ?string $description,
+        protected ?string $template,
+        protected ?array  $faq,
         protected ?string $slug,
         protected ?string $meta_title,
         protected ?string $meta_description,
         protected ?string $meta_keywords,
-        protected ?int $posts_count,
         protected ?string $url,
-        protected ?int $position,
-        protected ?bool $active,
+        protected ?bool   $active,
         protected ?string $created_at,
         protected ?string $updated_at
     ) {}
@@ -28,13 +28,13 @@ class BlogCategoryUpdateRequest implements Request
             "id" => $this->id,
             "name" => $this->name,
             "description" => $this->description,
+            "template" => $this->template,
+            "faq" => $this->faq,
             "slug" => $this->slug,
             "meta_title" => $this->meta_title,
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
-            "position" => $this->position,
             "url" => $this->url,
-            "posts_count" => $this->posts_count,
             "active" => $this->active,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at
@@ -48,7 +48,7 @@ class BlogCategoryUpdateRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/blog-category';
+        return 'integrator/import/pages';
     }
 
     public function getBody(): array
@@ -59,7 +59,7 @@ class BlogCategoryUpdateRequest implements Request
     public function getHeader(): array
     {
         return [
-            'dc-action'  => 'update'
+            'dc-action'  => 'insert'
         ];
     }
 }
