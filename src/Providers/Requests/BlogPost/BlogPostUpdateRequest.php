@@ -1,22 +1,23 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\BlogCategory;
+namespace DoocaCommerce\Integrator\Providers\Requests\BlogPost;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class BlogCategoryUpdateRequest implements Request
+class BlogPostUpdateRequest implements Request
 {
     public function __construct(
         protected int $id,
+        protected int $blog_category_id,
         protected ?string $name,
         protected ?string $description,
+        protected ?array $image,
         protected ?string $slug,
+        protected ?string $tags,
         protected ?string $meta_title,
         protected ?string $meta_description,
         protected ?string $meta_keywords,
-        protected ?int $posts_count,
         protected ?string $url,
-        protected ?int $position,
         protected ?bool $active,
         protected ?string $created_at,
         protected ?string $updated_at
@@ -26,15 +27,16 @@ class BlogCategoryUpdateRequest implements Request
     {
         return [
             "id" => $this->id,
+            "post_category_id" => $this->blog_category_id,
             "name" => $this->name,
             "description" => $this->description,
+            "image" => $this->image,
             "slug" => $this->slug,
+            "tags" => $this->tags,
             "meta_title" => $this->meta_title,
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
-            "position" => $this->position,
             "url" => $this->url,
-            "posts_count" => $this->posts_count,
             "active" => $this->active,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at
@@ -48,7 +50,7 @@ class BlogCategoryUpdateRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/blog-category';
+        return 'integrator/import/blog-post';
     }
 
     public function getBody(): array
