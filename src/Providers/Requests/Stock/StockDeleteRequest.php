@@ -6,9 +6,13 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class StockDeleteRequest implements Request
 {
+    protected int $id;
+
     public function __construct(
         int $id
-    ) {}
+    ) {
+        $this->id = $id;
+    }
 
     public function toArray(): array
     {

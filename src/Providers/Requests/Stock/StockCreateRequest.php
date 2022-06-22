@@ -6,6 +6,14 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class StockCreateRequest implements Request
 {
+    protected int $id;
+    protected float|int|null $balance;
+    protected float|int|null $reserved;
+    protected int $variation_id;
+    protected ?string $location;
+    protected ?string $created_at;
+    protected ?string $updated_a;
+
     public function __construct(
         int $id,
         float|int|null $balance,
@@ -14,7 +22,15 @@ class StockCreateRequest implements Request
         ?string $location,
         ?string $created_at,
         ?string $updated_at
-    ) {}
+    ) {
+        $this->id = $id;
+        $this->balance = $balance;
+        $this->reserved = $reserved;
+        $this->variation_id = $variation_id;
+        $this->location = $location;
+        $this->created_at = $created_at;
+        $this->updated_a = $updated_at;
+    }
 
     public function toArray(): array
     {
