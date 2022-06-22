@@ -6,22 +6,52 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class BlogPostCreateRequest implements Request
 {
+    protected int $id;
+    protected int $blog_category_id;
+    protected ?string $name;
+    protected ?string $description;
+    protected ?array $image;
+    protected ?string $slug;
+    protected ?string $tags;
+    protected ?string $meta_title;
+    protected ?string $meta_description;
+    protected ?string $meta_keywords;
+    protected ?string $url;
+    protected ?bool $active;
+    protected ?string $created_at;
+    protected ?string $updated_a;
+
     public function __construct(
-        protected int $id,
-        protected int $blog_category_id,
-        protected ?string $name,
-        protected ?string $description,
-        protected ?array $image,
-        protected ?string $slug,
-        protected ?string $tags,
-        protected ?string $meta_title,
-        protected ?string $meta_description,
-        protected ?string $meta_keywords,
-        protected ?string $url,
-        protected ?bool $active,
-        protected ?string $created_at,
-        protected ?string $updated_at
-    ) {}
+        int $id,
+        int $blog_category_id,
+        ?string $name,
+        ?string $description,
+        ?array $image,
+        ?string $slug,
+        ?string $tags,
+        ?string $meta_title,
+        ?string $meta_description,
+        ?string $meta_keywords,
+        ?string $url,
+        ?bool $active,
+        ?string $created_at,
+        ?string $updated_at
+    ) {
+        $this->id = $id;
+        $this->blog_category_id = $blog_category_id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->image = $image;
+        $this->slug = $slug;
+        $this->tags = $tags;
+        $this->meta_title = $meta_title;
+        $this->meta_description = $meta_description;
+        $this->meta_keywords = $meta_keywords;
+        $this->url = $url;
+        $this->active = $active;
+        $this->created_at = $created_at;
+        $this->updated_at = $updated_at;
+    }
 
     public function toArray(): array
     {

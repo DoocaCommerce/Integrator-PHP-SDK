@@ -6,20 +6,46 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class LandingPageCreateRequest implements Request
 {
+    protected int $id;
+    protected ?string $name;
+    protected ?array $content;
+    protected ?string $slug;
+    protected ?string $meta_title;
+    protected ?string $meta_description;
+    protected ?string $meta_keywords;
+    protected ?bool $not_index;
+    protected ?string $url;
+    protected ?bool   $active;
+    protected ?string $created_at;
+    protected ?string $updated_a;
+
     public function __construct(
-        protected int $id,
-        protected ?string $name,
-        protected ?array $content,
-        protected ?string $slug,
-        protected ?string $meta_title,
-        protected ?string $meta_description,
-        protected ?string $meta_keywords,
-        protected ?bool $not_index,
-        protected ?string $url,
-        protected ?bool   $active,
-        protected ?string $created_at,
-        protected ?string $updated_at
-    ) {}
+        int $id,
+        ?string $name,
+        ?array $content,
+        ?string $slug,
+        ?string $meta_title,
+        ?string $meta_description,
+        ?string $meta_keywords,
+        ?bool $not_index,
+        ?string $url,
+        ?bool   $active,
+        ?string $created_at,
+        ?string $updated_at
+    ) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->content = $content;
+        $this->slug = $slug;
+        $this->meta_title = $meta_title;
+        $this->meta_description = $meta_description;
+        $this->meta_keywords = $meta_keywords;
+        $this->not_index = $not_index;
+        $this->url = $url;
+        $this->active = $active;
+        $this->created_at = $created_at;
+        $this->updated_a = $updated_at;
+    }
 
     public function toArray(): array
     {

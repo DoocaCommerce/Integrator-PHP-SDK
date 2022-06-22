@@ -6,9 +6,13 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class BlogCategoryDeleteRequest implements Request
 {
+    protected int $id;
+
     public function __construct(
-        protected int $id
-    ) {}
+        int $id
+    ) {
+        $this->id = $id;
+    }
 
     public function toArray(): array
     {

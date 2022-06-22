@@ -6,21 +6,49 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class ScriptCreateRequest implements Request
 {
+    protected int $id;
+    protected string  $name;
+    protected ?string $description = null;
+    protected string  $location;
+    protected string  $page;
+    protected ?string $load_method;
+    protected ?string $url = null;
+    protected ?string $content = null;
+    protected string  $category;
+    protected ?int    $position = null;
+    protected bool    $active = true;
+    protected ?string $created_at;
+    protected ?string $updated_a;
+
     public function __construct(
-        protected int $id,
-        protected string  $name,
-        protected ?string $description = null,
-        protected string  $location,
-        protected string  $page,
-        protected ?string $load_method,
-        protected ?string $url = null,
-        protected ?string $content = null,
-        protected string  $category,
-        protected ?int    $position = null,
-        protected bool    $active = true,
-        protected ?string $created_at,
-        protected ?string $updated_at
-    ) {}
+        int $id,
+        string  $name,
+        ?string $description = null,
+        string  $location,
+        string  $page,
+        ?string $load_method,
+        ?string $url = null,
+        ?string $content = null,
+        string  $category,
+        ?int    $position = null,
+        bool    $active = true,
+        ?string $created_at,
+        ?string $updated_at
+    ) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->location = $location;
+        $this->page = $page;
+        $this->load_method = $load_method;
+        $this->url = $url;
+        $this->content = $content;
+        $this->category = $category;
+        $this->position = $position;
+        $this->active = $active;
+        $this->created_at = $created_at;
+        $this->updated_a = $updated_at;
+    }
 
     public function toArray(): array
     {
