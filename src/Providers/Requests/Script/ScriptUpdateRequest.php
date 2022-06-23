@@ -17,8 +17,6 @@ class ScriptUpdateRequest implements Request
     protected string  $category;
     protected ?int    $position = null;
     protected bool    $active = true;
-    protected ?string $created_at;
-    protected ?string $updated_a;
 
     public function __construct(
         int $id,
@@ -31,9 +29,7 @@ class ScriptUpdateRequest implements Request
         ?string $content = null,
         string  $category,
         ?int    $position = null,
-        bool    $active = true,
-        ?string $created_at,
-        ?string $updated_at
+        bool    $active = true
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -46,8 +42,6 @@ class ScriptUpdateRequest implements Request
         $this->category = $category;
         $this->position = $position;
         $this->active = $active;
-        $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
     }
 
     public function toArray(): array
@@ -63,9 +57,7 @@ class ScriptUpdateRequest implements Request
             "content" => $this->content,
             "category" => $this->category,
             "position" => $this->position,
-            "active" => $this->active,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "active" => $this->active
         ];
     }
 

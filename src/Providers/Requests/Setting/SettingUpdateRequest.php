@@ -12,8 +12,6 @@ class SettingUpdateRequest implements Request
     protected ?string $type;
     protected ?string $page = null;
     protected ?string $data;
-    protected ?string $created_at;
-    protected ?string $updated_a;
 
     public function __construct(
         int $id,
@@ -21,9 +19,7 @@ class SettingUpdateRequest implements Request
         ?string $version_id,
         ?string $type,
         ?string $page = null,
-        ?string $data,
-        ?string $created_at,
-        ?string $updated_at
+        ?string $data
     ) {
         $this->id = $id;
         $this->theme_id = $theme_id;
@@ -31,8 +27,6 @@ class SettingUpdateRequest implements Request
         $this->type = $type;
         $this->page = $page;
         $this->data = $data;
-        $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
     }
 
     public function toArray(): array
@@ -43,9 +37,7 @@ class SettingUpdateRequest implements Request
             "version_id" => $this->version_id,
             "type" => $this->type,
             "page" => $this->page,
-            "data" => $this->data,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "data" => $this->data
         ];
     }
 

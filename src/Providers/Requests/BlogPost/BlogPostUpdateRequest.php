@@ -6,22 +6,46 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class BlogPostUpdateRequest implements Request
 {
+    protected int $id;
+    protected int $blog_category_id;
+    protected ?string $name;
+    protected ?string $description;
+    protected ?array $image;
+    protected ?string $slug;
+    protected ?string $tags;
+    protected ?string $meta_title;
+    protected ?string $meta_description;
+    protected ?string $meta_keywords;
+    protected ?string $url;
+    protected ?bool $active;
+
     public function __construct(
-        protected int $id,
-        protected int $blog_category_id,
-        protected ?string $name,
-        protected ?string $description,
-        protected ?array $image,
-        protected ?string $slug,
-        protected ?string $tags,
-        protected ?string $meta_title,
-        protected ?string $meta_description,
-        protected ?string $meta_keywords,
-        protected ?string $url,
-        protected ?bool $active,
-        protected ?string $created_at,
-        protected ?string $updated_at
-    ) {}
+        int $id,
+        int $blog_category_id,
+        ?string $name,
+        ?string $description,
+        ?array $image,
+        ?string $slug,
+        ?string $tags,
+        ?string $meta_title,
+        ?string $meta_description,
+        ?string $meta_keywords,
+        ?string $url,
+        ?bool $active
+    ) {
+        $this->id = $id;
+        $this->blog_category_id = $blog_category_id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->image = $image;
+        $this->slug = $slug;
+        $this->tags = $tags;
+        $this->meta_title = $meta_title;
+        $this->meta_description = $meta_description;
+        $this->meta_keywords = $meta_keywords;
+        $this->url = $url;
+        $this->active = $active;
+    }
 
     public function toArray(): array
     {
@@ -37,9 +61,7 @@ class BlogPostUpdateRequest implements Request
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
             "url" => $this->url,
-            "active" => $this->active,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "active" => $this->active
         ];
     }
 

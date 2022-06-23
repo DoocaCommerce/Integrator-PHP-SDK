@@ -26,8 +26,6 @@ class CategoryUpdateRequest implements Request
     protected ?int $position = null;
     protected bool $active = true;
     protected ?string $url = null;
-    protected ?string $created_at;
-    protected ?string $updated_a;
 
     public function __construct(
         ?int $parent_id = null,
@@ -49,9 +47,7 @@ class CategoryUpdateRequest implements Request
         ?string $meta_keywords = null,
         ?int $position = null,
         bool $active = true,
-        ?string $url = null,
-        ?string $created_at,
-        ?string $updated_at
+        ?string $url = null
     ) {
         $this->id = $id;
         $this->parent_id = $parent_id;
@@ -73,8 +69,6 @@ class CategoryUpdateRequest implements Request
         $this->position = $position;
         $this->url = $url;
         $this->active = $active;
-        $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
     }
 
     public function toArray(): array
@@ -99,9 +93,7 @@ class CategoryUpdateRequest implements Request
             "meta_keywords" => $this->meta_keywords,
             "position" => $this->position,
             "url" => $this->url,
-            "active" => $this->active,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "active" => $this->active
         ];
     }
 

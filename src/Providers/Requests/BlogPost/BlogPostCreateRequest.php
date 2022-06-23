@@ -19,7 +19,7 @@ class BlogPostCreateRequest implements Request
     protected ?string $url;
     protected ?bool $active;
     protected ?string $created_at;
-    protected ?string $updated_a;
+    protected ?string $updated_at;
 
     public function __construct(
         int $id,

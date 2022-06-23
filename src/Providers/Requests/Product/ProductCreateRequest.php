@@ -56,7 +56,7 @@ class ProductCreateRequest implements Request
     protected ?array $variations = [];
     protected ?array $components = [];
     protected ?string $created_at;
-    protected ?string $updated_a;
+    protected ?string $updated_at;
 
     public function __construct(
         int $id,
@@ -161,7 +161,7 @@ class ProductCreateRequest implements Request
         $this->variations = $variations;
         $this->components = $components;
         $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array

@@ -10,23 +10,17 @@ class GroupUpdateRequest implements Request
     protected string $name;
     protected ?string $slug;
     protected ?string $description;
-    protected ?string $created_at = null;
-    protected ?string $updated_at = null;
 
     public function __construct(
         int $id,
         string $name,
         ?string $slug = null,
-        ?string $description = null,
-        ?string $created_at = null,
-        ?string $updated_at = null
+        ?string $description = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->slug = $slug;
         $this->description = $description;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -35,9 +29,7 @@ class GroupUpdateRequest implements Request
             "id" => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'description' => $this->description,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            'description' => $this->description
         ];
     }
 

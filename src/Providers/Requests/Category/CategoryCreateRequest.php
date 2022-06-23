@@ -27,7 +27,7 @@ class CategoryCreateRequest implements Request
     protected bool $active = true;
     protected ?string $url = null;
     protected ?string $created_at;
-    protected ?string $updated_a;
+    protected ?string $updated_at;
 
     public function __construct(
         ?int $parent_id = null,
@@ -74,7 +74,7 @@ class CategoryCreateRequest implements Request
         $this->url = $url;
         $this->active = $active;
         $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array

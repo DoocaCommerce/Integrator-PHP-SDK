@@ -16,8 +16,6 @@ class BlogCategoryUpdateRequest implements Request
     protected ?string $url;
     protected ?int $position;
     protected ?bool $active;
-    protected ?string $created_at;
-    protected ?string $updated_a;
 
     public function __construct(
         int $id,
@@ -30,9 +28,7 @@ class BlogCategoryUpdateRequest implements Request
         ?int $posts_count,
         ?string $url,
         ?int $position,
-        ?bool $active,
-        ?string $created_at,
-        ?string $updated_at
+        ?bool $active
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -45,8 +41,6 @@ class BlogCategoryUpdateRequest implements Request
         $this->url = $url;
         $this->posts_count = $posts_count;
         $this->active = $active;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -62,9 +56,7 @@ class BlogCategoryUpdateRequest implements Request
             "position" => $this->position,
             "url" => $this->url,
             "posts_count" => $this->posts_count,
-            "active" => $this->active,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "active" => $this->active
         ];
     }
 

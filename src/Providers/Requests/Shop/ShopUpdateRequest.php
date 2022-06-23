@@ -65,8 +65,6 @@ class ShopUpdateRequest implements Request
     protected ?array $tracker_google_analytics = null;
     protected ?array $tracker_google_conversion = null;
     protected ?array $tracker_facebook_pixel = null;
-    protected ?string $created_at;
-    protected ?string $updated_a;
 
     public function __construct(
         int $id,
@@ -127,9 +125,7 @@ class ShopUpdateRequest implements Request
         ?array $shop_marketplace = null,
         ?array $tracker_google_analytics = null,
         ?array $tracker_google_conversion = null,
-        ?array $tracker_facebook_pixel = null,
-        ?string $created_at,
-        ?string $updated_at
+        ?array $tracker_facebook_pixel = null
     ) {
         $this->id = $id;
         $this->partner_id = $partner_id;
@@ -190,8 +186,6 @@ class ShopUpdateRequest implements Request
         $this->tracker_google_analytics = $tracker_google_analytics;
         $this->tracker_google_conversion = $tracker_google_conversion;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
-        $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
     }
 
     public function toArray(): array
@@ -255,9 +249,7 @@ class ShopUpdateRequest implements Request
             "shop_marketplace" => $this->shop_marketplace,
             "tracker_google_analytics" => $this->tracker_google_analytics,
             "tracker_google_conversion" => $this->tracker_google_conversion,
-            "tracker_facebook_pixel" => $this->tracker_facebook_pixel,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "tracker_facebook_pixel" => $this->tracker_facebook_pixel
         ];
     }
 

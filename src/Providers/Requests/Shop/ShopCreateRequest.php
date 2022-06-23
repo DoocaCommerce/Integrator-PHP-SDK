@@ -66,7 +66,7 @@ class ShopCreateRequest implements Request
     protected ?array $tracker_google_conversion = null;
     protected ?array $tracker_facebook_pixel = null;
     protected ?string $created_at;
-    protected ?string $updated_a;
+    protected ?string $updated_at;
 
     public function __construct(
         int $id,
@@ -191,7 +191,7 @@ class ShopCreateRequest implements Request
         $this->tracker_google_conversion = $tracker_google_conversion;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
         $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array

@@ -13,7 +13,7 @@ class SettingCreateRequest implements Request
     protected ?string $page = null;
     protected ?string $data;
     protected ?string $created_at;
-    protected ?string $updated_a;
+    protected ?string $updated_at;
 
     public function __construct(
         int $id,
@@ -32,7 +32,7 @@ class SettingCreateRequest implements Request
         $this->page = $page;
         $this->data = $data;
         $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array

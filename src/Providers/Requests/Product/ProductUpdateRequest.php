@@ -55,8 +55,6 @@ class ProductUpdateRequest implements Request
     protected ?array $images = null;
     protected ?array $variations = [];
     protected ?array $components = [];
-    protected ?string $created_at;
-    protected ?string $updated_a;
 
     public function __construct(
         int $id,
@@ -107,9 +105,7 @@ class ProductUpdateRequest implements Request
         ?array $carrie_exclude_ids = [],
         ?array $images = null,
         ?array $variations = [],
-        ?array $components = [],
-        ?string $created_at,
-        ?string $updated_at
+        ?array $components = []
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -160,8 +156,6 @@ class ProductUpdateRequest implements Request
         $this->images = $images;
         $this->variations = $variations;
         $this->components = $components;
-        $this->created_at = $created_at;
-        $this->updated_a = $updated_at;
     }
 
     public function toArray(): array
@@ -215,9 +209,7 @@ class ProductUpdateRequest implements Request
             "carrie_exclude_ids" => $this->carrie_exclude_ids,
             "images" => $this->images,
             "variations" => $this->variations,
-            "components" => $this->components,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "components" => $this->components
         ];
     }
 
