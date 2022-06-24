@@ -8,7 +8,7 @@ class SettingUpdateRequest implements Request
 {
     protected int $id;
     protected ?int $theme_id;
-    protected ?string $version_id;
+    protected ?int $version_id;
     protected ?string $type;
     protected ?string $page = null;
     protected ?string $data;
@@ -16,7 +16,7 @@ class SettingUpdateRequest implements Request
     public function __construct(
         int $id,
         ?int $theme_id,
-        ?string $version_id,
+        ?int $version_id,
         ?string $type,
         ?string $page = null,
         ?string $data
