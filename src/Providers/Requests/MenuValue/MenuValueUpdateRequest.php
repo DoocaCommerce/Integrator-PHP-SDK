@@ -23,8 +23,6 @@ class MenuValueUpdateRequest implements Request
     protected string $slug;
     protected bool $active = true;
     protected ?int $position = null;
-    protected ?string $created_at = null;
-    protected ?string $updated_at = null;
 
     public function __construct(
         int $id,
@@ -43,9 +41,7 @@ class MenuValueUpdateRequest implements Request
 		?string $banner_link,
 		string $slug,
 		bool $active = true,
-		?int $position = null,
-        ?string $created_at = null,
-        ?string $updated_at = null
+		?int $position = null
     ) {
         $this->id = $id;
         $this->menu_id = $menu_id;
@@ -64,8 +60,6 @@ class MenuValueUpdateRequest implements Request
         $this->slug = $slug;
         $this->active = $active;
         $this->position = $position;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -87,9 +81,7 @@ class MenuValueUpdateRequest implements Request
             "banner_link" => $this->banner_link,
             "slug" => $this->slug,
             "active" => $this->active,
-            "position" => $this->position,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            "position" => $this->position
         ];
     }
 
