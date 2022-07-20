@@ -115,7 +115,7 @@ class VariationUpdateRequest implements Request
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'PUT';
     }
 
     public function getPath(): string
@@ -126,12 +126,5 @@ class VariationUpdateRequest implements Request
     public function getBody(): array
     {
         return $this->toArray();
-    }
-
-    public function getHeader(): array
-    {
-        return [
-            'dc-action'  => 'update'
-        ];
     }
 }

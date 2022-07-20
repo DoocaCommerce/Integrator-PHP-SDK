@@ -25,7 +25,7 @@ class StockUpdateRequest implements Request
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'PUT';
     }
 
     public function getPath(): string
@@ -40,13 +40,6 @@ class StockUpdateRequest implements Request
             "reserved" => $this->reserved,
             "variation_id" => $this->variation_id,
             "location" => $this->location
-        ];
-    }
-
-    public function getHeader(): array
-    {
-        return [
-            'dc-action'  => 'update'
         ];
     }
 }

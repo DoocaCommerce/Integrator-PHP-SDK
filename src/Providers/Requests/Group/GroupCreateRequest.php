@@ -55,11 +55,4 @@ class GroupCreateRequest implements Request
     {
         return $this->toArray();
     }
-
-    public function getHeader(): array
-    {
-        return [
-            'dc-action'  => 'insert'
-        ];
-    }
 }
