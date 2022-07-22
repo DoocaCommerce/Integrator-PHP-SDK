@@ -28,7 +28,7 @@ class ProductDeleteRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/product';
+        return 'integrator/import/showcase';
     }
 
     public function getBody(): array
