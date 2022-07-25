@@ -23,7 +23,7 @@ class MenuDeleteRequest implements Request
 
     public function getMethod(): string
     {
-        return 'POST';
+        return 'DELETE';
     }
 
     public function getPath(): string
@@ -34,12 +34,5 @@ class MenuDeleteRequest implements Request
     public function getBody(): array
     {
         return $this->toArray();
-    }
-
-    public function getHeader(): array
-    {
-        return [
-            'dc-action'  => 'delete'
-        ];
     }
 }

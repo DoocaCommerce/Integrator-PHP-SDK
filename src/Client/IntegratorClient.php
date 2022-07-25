@@ -34,9 +34,8 @@ class IntegratorClient
 
     public function send(Request $request): Response
     {
-        $header = $request->getHeader();
-        $header['authorization'] = 'Bearer ' . $this->token;
-
+        $header = ['authorization' => 'Bearer ' . $this->token];
+        
         $response = $this->client->request(
             method: $request->getMethod(),
             uri: $request->getPath(),
