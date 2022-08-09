@@ -37,9 +37,9 @@ class IntegratorClient
         $header = ['authorization' => 'Bearer ' . $this->token];
         
         $response = $this->client->request(
-            method: $request->getMethod(),
-            uri: $request->getPath(),
-            options: [
+            $request->getMethod(),
+            $request->getPath(),
+            [
                 'body' => json_encode($request->getBody()),
                 'headers' => $header,
             ],
