@@ -6,14 +6,14 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class StockUpdateRequest implements Request
 {
-    protected float|int|null $balance;
-    protected float|int|null $reserved;
+    protected int $balance;
+    protected int $reserved;
     protected int $variation_id;
     protected ?string $location;
 
     public function __construct(
-        float|int|null $balance,
-        float|int|null $reserved,
+        int $balance,
+        int $reserved,
         int $variation_id,
         ?string $location
     ) {

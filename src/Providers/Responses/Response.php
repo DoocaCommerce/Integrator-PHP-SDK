@@ -6,10 +6,13 @@ use Psr\Http\Message\ResponseInterface;
 
 class Response
 {
-    public mixed $data;
+    /**
+     * @var ResponseInterface
+     */
+    public $data;
 
     public function __construct(
-        protected ResponseInterface $response
+        ResponseInterface $response
     ) {
         $this->data = $response->getBody();
     }
