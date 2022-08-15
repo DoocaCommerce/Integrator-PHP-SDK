@@ -7,8 +7,8 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class ProductUpdateRequest implements Request
 {
     protected int $id;
-    protected string $name;
-    protected string $slug;
+    protected ?string $name;
+    protected ?string $slug;
     protected ?int $category_default_id = null;
     protected ?int $brand_id = null;
     protected ?int $hotsite_id = null;
@@ -58,8 +58,8 @@ class ProductUpdateRequest implements Request
 
     public function __construct(
         int $id,
-        string $name,
-        string $slug,
+        ?string $name,
+        ?string $slug,
         ?int $category_default_id = null,
         ?int $brand_id = null,
         ?int $hotsite_id = null,

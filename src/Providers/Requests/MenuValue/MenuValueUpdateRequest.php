@@ -7,39 +7,39 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class MenuValueUpdateRequest implements Request
 {
     protected ?int $id;
-    protected int $menu_id;
+    protected ?int $menu_id;
     protected ?int $parent_id;
     protected ?int $category_id;
     protected ?int $brand_id;
     protected ?int $hotsite_id;
     protected ?int $page_id;
-    protected string $name;
+    protected ?string $name;
     protected ?string $menu_type;
     protected ?string $link;
     protected ?string $image;
     protected bool $is_featured = false;
     protected ?string $banner;
     protected ?string $banner_link;
-    protected string $slug;
+    protected ?string $slug;
     protected bool $active = true;
     protected ?int $position = null;
 
     public function __construct(
         int $id,
-        int $menu_id,
+        ?int $menu_id,
 		?int $parent_id,
 		?int $category_id,
 		?int $brand_id,
 		?int $hotsite_id,
 		?int $page_id,
-		string $name,
+		?string $name,
 		?string $menu_type,
 		?string $link,
 		?string $image,
 		bool $is_featured = false,
 		?string $banner,
 		?string $banner_link,
-		string $slug,
+		?string $slug,
 		bool $active = true,
 		?int $position = null
     ) {

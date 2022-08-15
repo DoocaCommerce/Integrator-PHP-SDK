@@ -7,12 +7,12 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class MenuUpdateRequest implements Request
 {
     protected ?int $id;
-    protected string $name;
+    protected ?string $name;
     protected ?string $handle = null;
 
     public function __construct(
         int $id,
-        string $name,
+        ?string $name,
         ?string $handle = null
     ) {
         $this->id = $id;

@@ -10,14 +10,14 @@ class CategoryUpdateRequest implements Request
     protected ?int $parent_id = null;
     protected ?int $hotsite_id = null;
     protected ?string $external_id = null;
-    protected string $name;
+    protected ?string $name;
     protected ?string $description = null;
     protected ?array $image = null;
     protected ?array $banner = null;
     protected ?string $banner_link = null;
     protected ?string $breadcrumb = null;
     protected ?array $breadcrumbs = null;
-    protected int $depth;
+    protected ?int $depth;
     protected ?int $google_taxonomy_id = null;
     protected string $slug;
     protected ?string $meta_title = null;
@@ -32,14 +32,14 @@ class CategoryUpdateRequest implements Request
         int $id,
         ?int $hotsite_id = null,
         ?string $external_id = null,
-        string $name,
+        ?string $name,
         ?string $description = null,
         ?array $image = null,
         ?array $banner = null,
         ?string $banner_link = null,
         ?string $breadcrumb = null,
         ?array $breadcrumbs = null,
-        int $depth,
+        ?int $depth,
         ?int $google_taxonomy_id = null,
         string $slug,
         ?string $meta_title = null,
