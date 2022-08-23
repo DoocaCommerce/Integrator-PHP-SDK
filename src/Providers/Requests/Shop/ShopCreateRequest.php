@@ -8,6 +8,7 @@ class ShopCreateRequest implements Request
 {
     protected int $id;
     protected ?int $partner_id = null;
+    protected ?int $customer_service_cell_id = null;
     protected ?int $superlogica_id = null;
     protected ?string $name = null;
     protected ?string $phrase = null;
@@ -17,6 +18,11 @@ class ShopCreateRequest implements Request
     protected ?string $email = null;
     protected ?string $email_from = null;
     protected ?string $industry = null;
+    protected ?string $knowledge = null;
+    protected ?string $sales_urgency = null;
+    protected ?string $rating = null;
+    protected ?bool $already_selling = null;
+    protected ?string $already_selling_system = null;
     protected ?string $ecomerce_knowledge = null;
     protected ?string $domain = null;
     protected ?string $domain_installed_at = null;
@@ -54,16 +60,29 @@ class ShopCreateRequest implements Request
     protected ?string $terms_accepted_at = null;
     protected ?int $users_count = null;
     protected ?int $products_count = null;
+    protected ?array $schedule_delivery = null;
+    protected ?array $checkout_options = null;
+    protected ?array $bagy_apps = null;
     protected ?int $phone_service_code = null;
     protected ?string $suspended_at = null;
+    protected ?string $canceled_at = null;
     protected ?bool $active = true;
+    protected ?bool $enable_beta = false;
     protected ?string $trial_ends_at = null;
+    protected ?bool $trial_modal = false;
+    protected ?string $organization = null;
+    protected ?string $utm_campaign = null;
+    protected ?bool $beta_checkout = false;
+    protected ?bool $beta_admin = false;
+    protected ?string $registration_completed_at = null;
+    protected ?string $anonymized_at = null;
     protected ?bool $gift_wrapping_active = false;
     protected ?float $gift_wrapping_price = null;
     protected ?array $notifications = null;
     protected ?array $shop_marketplace = null;
     protected ?array $tracker_google_analytics = null;
     protected ?array $tracker_google_conversion = null;
+    protected ?bool $ideris_connect = false;
     protected ?array $tracker_facebook_pixel = null;
     protected ?string $created_at;
     protected ?string $updated_at;
@@ -71,6 +90,7 @@ class ShopCreateRequest implements Request
     public function __construct(
         int $id,
         ?int $partner_id = null,
+        ?int $customer_service_cell_id = null,
         ?int $superlogica_id = null,
         ?string $name = null,
         ?string $phrase = null,
@@ -80,6 +100,11 @@ class ShopCreateRequest implements Request
         ?string $email = null,
         ?string $email_from = null,
         ?string $industry = null,
+        ?string $knowledge = null,
+        ?string $sales_urgency = null,
+        ?string $rating = null,
+        ?bool $already_selling = null,
+        ?string $already_selling_system = null,
         ?string $ecomerce_knowledge = null,
         ?string $domain = null,
         ?string $domain_installed_at = null,
@@ -117,22 +142,36 @@ class ShopCreateRequest implements Request
         ?string $terms_accepted_at = null,
         ?int $users_count = null,
         ?int $products_count = null,
+        ?array $schedule_delivery = null,
+        ?array $checkout_options = null,
+        ?array $bagy_apps = null,
         ?int $phone_service_code = null,
         ?string $suspended_at = null,
+        ?string $canceled_at = null,
         ?bool $active = true,
+        ?bool $enable_beta = false,
         ?string $trial_ends_at = null,
+        ?bool $trial_modal = false,
+        ?string $organization = null,
+        ?string $utm_campaign = null,
+        ?bool $beta_checkout = false,
+        ?bool $beta_admin = false,
+        ?string $registration_completed_at = null,
+        ?string $anonymized_at = null,
         ?bool $gift_wrapping_active = false,
         ?float $gift_wrapping_price = null,
         ?array $notifications = null,
         ?array $shop_marketplace = null,
         ?array $tracker_google_analytics = null,
         ?array $tracker_google_conversion = null,
+        ?bool $ideris_connect = false,
         ?array $tracker_facebook_pixel = null,
         ?string $created_at,
         ?string $updated_at
     ) {
         $this->id = $id;
         $this->partner_id = $partner_id;
+        $this->customer_service_cell_id = $customer_service_cell_id;
         $this->superlogica_id = $superlogica_id;
         $this->name = $name;
         $this->phrase = $phrase;
@@ -142,6 +181,11 @@ class ShopCreateRequest implements Request
         $this->email = $email;
         $this->email_from = $email_from;
         $this->industry = $industry;
+        $this->knowledge = $knowledge;
+        $this->sales_urgency = $sales_urgency;
+        $this->rating = $rating;
+        $this->already_selling = $already_selling;
+        $this->already_selling_system = $already_selling_system;
         $this->ecomerce_knowledge = $ecomerce_knowledge;
         $this->domain = $domain;
         $this->domain_installed_at = $domain_installed_at;
@@ -179,16 +223,29 @@ class ShopCreateRequest implements Request
         $this->terms_accepted_at = $terms_accepted_at;
         $this->users_count = $users_count;
         $this->products_count = $products_count;
+        $this->schedule_delivery = $schedule_delivery;
+        $this->checkout_options = $checkout_options;
+        $this->bagy_apps = $bagy_apps;
         $this->phone_service_code = $phone_service_code;
         $this->suspended_at = $suspended_at;
+        $this->canceled_at = $canceled_at;
         $this->active = $active;
+        $this->enable_beta = $enable_beta;
         $this->trial_ends_at = $trial_ends_at;
+        $this->trial_modal = $trial_modal;
+        $this->organization = $organization;
+        $this->utm_campaign = $utm_campaign;
+        $this->beta_checkout = $beta_checkout;
+        $this->beta_admin = $beta_admin;
+        $this->registration_completed_at = $registration_completed_at;
+        $this->anonymized_at = $anonymized_at;
         $this->gift_wrapping_active = $gift_wrapping_active;
         $this->gift_wrapping_price = $gift_wrapping_price;
         $this->notifications = $notifications;
         $this->shop_marketplace = $shop_marketplace;
         $this->tracker_google_analytics = $tracker_google_analytics;
         $this->tracker_google_conversion = $tracker_google_conversion;
+        $this->ideris_connect = $ideris_connect;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
@@ -199,6 +256,7 @@ class ShopCreateRequest implements Request
         return [
             "id" => $this->id,
             "partner_id" => $this->partner_id,
+            "customer_service_cell_id" => $this->customer_service_cell_id,
             "superlogica_id" => $this->superlogica_id,
             "name" => $this->name,
             "phrase" => $this->phrase,
@@ -208,6 +266,11 @@ class ShopCreateRequest implements Request
             "email" => $this->email,
             "email_from" => $this->email_from,
             "industry" => $this->industry,
+            "knowledge" => $this->knowledge,
+            "sales_urgency" => $this->sales_urgency,
+            "rating" => $this->rating,
+            "already_selling" => $this->already_selling,
+            "already_selling_system" => $this->already_selling_system,
             "ecomerce_knowledge" => $this->ecomerce_knowledge,
             "domain" => $this->domain,
             "domain_installed_at" => $this->domain_installed_at,
@@ -245,16 +308,29 @@ class ShopCreateRequest implements Request
             "terms_accepted_at" => $this->terms_accepted_at,
             "users_count" => $this->users_count,
             "products_count" => $this->products_count,
+            "schedule_delivery" => $this->schedule_delivery,
+            "checkout_options" => $this->checkout_options,
+            "bagy_apps" => $this->bagy_apps,
             "phone_service_code" => $this->phone_service_code,
             "suspended_at" => $this->suspended_at,
+            "canceled_at" => $this->canceled_at,
             "active" => $this->active,
+            "enable_beta" => $this->enable_beta,
             "trial_ends_at" => $this->trial_ends_at,
+            "trial_modal" => $this->trial_modal,
+            "organization" => $this->organization,
+            "utm_campaign" => $this->utm_campaign,
+            "beta_checkout" => $this->beta_checkout,
+            "beta_admin" => $this->beta_admin,
+            "registration_completed_at" => $this->registration_completed_at,
+            "anonymized_at" => $this->anonymized_at,
             "gift_wrapping_active" => $this->gift_wrapping_active,
             "gift_wrapping_price" => $this->gift_wrapping_price,
             "notifications" => $this->notifications,
             "shop_marketplace" => $this->shop_marketplace,
             "tracker_google_analytics" => $this->tracker_google_analytics,
             "tracker_google_conversion" => $this->tracker_google_conversion,
+            "ideris_connect" => $this->ideris_connect,
             "tracker_facebook_pixel" => $this->tracker_facebook_pixel,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at
