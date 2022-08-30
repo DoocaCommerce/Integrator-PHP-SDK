@@ -13,13 +13,15 @@ class IntegratorClient
 
     public function __construct(
         string $token,
-        string $baseUri
+        string $baseUri,
+        string $domain
     ) {
         $this->client = new Client(
             [
             'headers' => [
                 'Content-Type' => 'application/json',
-                'dc-source' => 'api'
+                'dc-source' => 'api',
+                'dc-domain' => $domain
             ],
             'base_uri' => $baseUri,
         ]);
@@ -27,9 +29,9 @@ class IntegratorClient
         $this->token = $token;
     }
 
-    public static function create(string $token, string $baseUri): self
+    public static function create(string $token, string $baseUri, string $domain): self
     {
-        return new self($token, $baseUri);
+        return new self($token, $baseUri, $domain);
     }
 
     public function send(Request $request): Response
