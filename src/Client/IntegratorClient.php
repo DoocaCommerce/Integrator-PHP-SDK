@@ -9,12 +9,12 @@ use GuzzleHttp\Client;
 class IntegratorClient
 {
     private Client $client;
-    private string $token;
+    private ?string $token;
 
     public function __construct(
-        string $token,
         string $baseUri,
-        string $domain
+        ?string $token,
+        ?string $domain
     ) {
         $this->client = new Client(
             [
@@ -29,9 +29,9 @@ class IntegratorClient
         $this->token = $token;
     }
 
-    public static function create(string $token, string $baseUri, string $domain): self
+    public static function create(string $baseUri, ?string $token = null, ?string $domain = null): self
     {
-        return new self($token, $baseUri, $domain);
+        return new self($baseUri, $token, $domain);
     }
 
     public function send(Request $request): Response
