@@ -228,7 +228,7 @@ class ProductCreateRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/showcase';
+        return 'integrator/import/product';
     }
 
     public function getBody(): array
