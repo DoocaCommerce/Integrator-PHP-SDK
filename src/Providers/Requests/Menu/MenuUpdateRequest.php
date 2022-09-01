@@ -9,15 +9,18 @@ class MenuUpdateRequest implements Request
     protected ?int $id;
     protected ?string $name;
     protected ?string $handle = null;
+    protected ?array $values = null;
 
     public function __construct(
         int $id,
         ?string $name,
-        ?string $handle = null
+        ?string $handle = null,
+        ?array $values = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->handle = $handle;
+        $this->values = $values;
     }
 
     public function toArray(): array
@@ -25,7 +28,8 @@ class MenuUpdateRequest implements Request
         return [
             "id" => $this->id,
             'name' => $this->name,
-            'handle' => $this->handle
+            'handle' => $this->handle,
+            'values' => $this->values
         ];
     }
 
