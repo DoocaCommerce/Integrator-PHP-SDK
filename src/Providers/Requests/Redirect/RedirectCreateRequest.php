@@ -6,20 +6,17 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class RedirectCreateRequest implements Request
 {
-    protected int $id;
     protected string $url_from;
     protected string $url_to;
     protected ?string $created_at;
     protected ?string $updated_at;
     
     public function __construct(
-        int $id,
         string $url_from,
         string $url_to,
         ?string $created_at,
         ?string $updated_at,
     ) {
-        $this->id = $id;
         $this->url_from = $url_from;
         $this->url_to = $url_to;
         $this->created_at = $created_at;
