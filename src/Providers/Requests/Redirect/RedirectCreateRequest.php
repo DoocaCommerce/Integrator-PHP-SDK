@@ -30,7 +30,7 @@ class RedirectCreateRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/redirects';
+        return 'integrator/import/redirect';
     }
 
     public function getBody(): array
