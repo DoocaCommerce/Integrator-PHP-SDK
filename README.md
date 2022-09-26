@@ -1,5 +1,9 @@
 # Integrator SDK
 
+```
+composer require doocacommerce/integrator
+```
+
 ### Requests disponíveis
 
   - Blog Category

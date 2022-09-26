@@ -1,6 +1,8 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests;
+namespace DoocaCommerce\Integrator\Providers\Requests\Redirect;
+
+use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class RedirectUpdateRequest implements Request
 {
