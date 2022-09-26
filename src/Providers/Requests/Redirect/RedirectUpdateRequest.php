@@ -17,7 +17,7 @@ class RedirectUpdateRequest implements Request
         string $url_from,
         string $url_to,
         ?string $created_at,
-        ?string $updated_at,
+        ?string $updated_at
     ) {
         $this->id = $id;
         $this->url_from = $url_from;
@@ -48,7 +48,7 @@ class RedirectUpdateRequest implements Request
             'url_from' => $this->url_from,
             'url_to' => $this->url_to,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }
