@@ -7,12 +7,17 @@
             "DoocaCommerce\\Integrator\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "Rodrigo Gomes do Nascimento",
-            "email": "rodrigo@dooca.com.br"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DoocaCommerce\\Integrator"
+            ]
         }
-    ],
+    },
+    "authors": [{
+        "name": "Dooca Commerce",
+        "email": "suporte@dooca.com.br"
+    }],
     "minimum-stability": "dev",
     "require": {
         "php": "^7.4|^8.0",
