@@ -29,7 +29,9 @@ class VariationCreateRequest implements Request
     protected ?int $additional_shipping_time = null;
     protected ?int $position = null;
     protected bool $active = true;
-    protected ?string $color = null;
+    protected ?array $color = null;
+    protected ?array $attribute = null;
+    protected ?array $attribute_secondary = null;
     protected ?string $created_at = null;
     protected ?string $updated_at = null;
 
@@ -57,7 +59,9 @@ class VariationCreateRequest implements Request
         ?int $additional_shipping_time = null,
         ?int $position = null,
         bool $active = true,
-        ?string $color = null,
+        ?array $color = null,
+        ?array $attribute = null,
+        ?array $attribute_secondary = null,
         ?string $created_at = null,
         ?string $updated_at = null
     ) {
@@ -85,6 +89,8 @@ class VariationCreateRequest implements Request
         $this->position = $position;
         $this->active = $active;
         $this->color = $color;
+        $this->attribute = $attribute;
+        $this->attribute_secondary = $attribute_secondary;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
     }
@@ -116,6 +122,8 @@ class VariationCreateRequest implements Request
             'position' => $this->position,
             'active' => $this->active,
             'color' => $this->color,
+            'attribute' => $this->attribute,
+            'attribute_secondary' => $this->attribute_secondary,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at
         ];

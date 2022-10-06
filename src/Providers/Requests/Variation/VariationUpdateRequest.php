@@ -29,7 +29,9 @@ class VariationUpdateRequest implements Request
     protected ?int $additional_shipping_time = null;
     protected ?int $position = null;
     protected bool $active = true;
-    protected ?string $color = null;
+    protected ?array $color = null;
+    protected ?array $attribute = null;
+    protected ?array $attribute_secondary = null;
 
     public function __construct(
         int $id,
@@ -55,7 +57,9 @@ class VariationUpdateRequest implements Request
         ?int $additional_shipping_time = null,
         ?int $position = null,
         bool $active = true,
-        ?string $color = null
+        ?array $color = null,
+        ?array $attribute = null,
+        ?array $attribute_secondary = null
     ) {
         $this->id = $id;
         $this->product_id = $product_id;
@@ -81,6 +85,8 @@ class VariationUpdateRequest implements Request
         $this->position = $position;
         $this->active = $active;
         $this->color = $color;
+        $this->attribute = $attribute;
+        $this->attribute_secondary = $attribute_secondary;
     }
 
     public function toArray(): array
@@ -109,7 +115,9 @@ class VariationUpdateRequest implements Request
             'additional_shipping_time' => $this->additional_shipping_time,
             'position' => $this->position,
             'active' => $this->active,
-            'color' => $this->color
+            'color' => $this->color,
+            'attribute' => $this->attribute,
+            'attribute_secondary' => $this->attribute_secondary,
         ];
     }
 
