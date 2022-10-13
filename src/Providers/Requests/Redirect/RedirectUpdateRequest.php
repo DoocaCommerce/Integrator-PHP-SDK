@@ -8,15 +8,13 @@ class RedirectUpdateRequest extends RedirectCreateRequest
         int $id,
         string $url_from,
         string $url_to,
-        ?string $created_at,
-        ?string $updated_at
+        ?string $created_at
     ) {
         parent::__construct(
             $id,
             $url_from,
             $url_to,
-            $created_at,
-            $updated_at
+            $created_at
         );
     }
 

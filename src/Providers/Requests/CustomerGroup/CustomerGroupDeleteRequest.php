@@ -1,10 +1,10 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\LandingPage;
+namespace DoocaCommerce\Integrator\Providers\Requests\CustomerGroup;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class LandingPageDeleteRequest implements Request
+class CustomerGroupDeleteRequest implements Request
 {
     protected int $id;
 
@@ -28,7 +28,7 @@ class LandingPageDeleteRequest implements Request
 
     public function getPath(): string
     {
-        return 'integrator/import/landing-pages';
+        return 'integrator/import/customer-group';
     }
 
     public function getBody(): array

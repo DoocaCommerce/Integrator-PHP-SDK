@@ -17,6 +17,7 @@ class BrandUpdateRequest implements Request
     protected ?string $meta_description;
     protected ?string $meta_keywords;
     protected ?string $short_description;
+    protected ?string $updated_at;
     protected ?array $banner;
     protected ?bool $active;
 
@@ -33,7 +34,8 @@ class BrandUpdateRequest implements Request
         ?string $meta_keywords,
         ?string $short_description,
         ?array $banner,
-        ?bool $active
+        ?bool $active,
+        ?string $updated_at
     ) {
         $this->id = $id;
         $this->external_id = $external_id;
@@ -48,6 +50,7 @@ class BrandUpdateRequest implements Request
         $this->short_description = $short_description;
         $this->banner = $banner;
         $this->active = $active;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -65,7 +68,8 @@ class BrandUpdateRequest implements Request
             "meta_keywords" => $this->meta_keywords,
             "short_description" => $this->short_description,
             "banner" => $this->banner,
-            "active" => $this->active
+            "active" => $this->active,
+            "updated_at" => $this->updated_at,
         ];
     }
 

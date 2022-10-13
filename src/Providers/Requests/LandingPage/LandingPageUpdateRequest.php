@@ -15,7 +15,9 @@ class LandingPageUpdateRequest implements Request
     protected ?string $meta_keywords;
     protected ?bool $not_index;
     protected ?string $url;
-    protected ?bool   $active;
+    protected ?bool $active;
+    protected ?string $created_at;
+    protected ?string $updated_at;
 
     public function __construct(
         int $id,
@@ -26,8 +28,9 @@ class LandingPageUpdateRequest implements Request
         ?string $meta_description,
         ?string $meta_keywords,
         ?bool $not_index,
-        ?string $url,
-        ?bool   $active
+        ?bool $active,
+        ?string $created_at,
+        ?string $updated_at
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -37,8 +40,9 @@ class LandingPageUpdateRequest implements Request
         $this->meta_description = $meta_description;
         $this->meta_keywords = $meta_keywords;
         $this->not_index = $not_index;
-        $this->url = $url;
         $this->active = $active;
+        $this->created_at = $created_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -52,8 +56,9 @@ class LandingPageUpdateRequest implements Request
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
             "not_index" => $this->not_index,
-            "url" => $this->url,
-            "active" => $this->active
+            "active" => $this->active,
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at,
         ];
     }
 

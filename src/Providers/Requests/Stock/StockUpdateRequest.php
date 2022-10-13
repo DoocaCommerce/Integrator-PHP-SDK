@@ -6,21 +6,15 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class StockUpdateRequest implements Request
 {
-    protected int $balance;
-    protected int $reserved;
     protected int $variation_id;
-    protected ?string $location;
+    protected int $balance;
 
     public function __construct(
-        int $balance,
-        int $reserved,
         int $variation_id,
-        ?string $location
+        int $balance
     ) {
-        $this->balance = $balance;
-        $this->reserved = $reserved;
         $this->variation_id = $variation_id;
-        $this->location = $location;
+        $this->balance = $balance;
     }
 
     public function getMethod(): string
@@ -36,10 +30,8 @@ class StockUpdateRequest implements Request
     public function getBody(): array
     {
         return [
-            "balance" => $this->balance,
-            "reserved" => $this->reserved,
             "variation_id" => $this->variation_id,
-            "location" => $this->location
+            "balance" => $this->balance,
         ];
     }
 }

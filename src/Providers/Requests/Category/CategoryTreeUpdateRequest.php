@@ -1,34 +1,33 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\LandingPage;
+namespace DoocaCommerce\Integrator\Providers\Requests\Category;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class LandingPageDeleteRequest implements Request
+class CategoryTreeUpdateRequest implements Request
 {
-    protected int $id;
+    protected $tree;
 
-    public function __construct(
-        int $id
-    ) {
-        $this->id = $id;
+    public function __construct($tree)
+    {
+        $this->tree = $tree;
     }
 
     public function toArray(): array
     {
         return [
-            "id" => $this->id
+            'data' => $this->tree
         ];
     }
 
     public function getMethod(): string
     {
-        return 'DELETE';
+        return 'PUT';
     }
 
     public function getPath(): string
     {
-        return 'integrator/import/landing-pages';
+        return 'integrator/import/category-tree';
     }
 
     public function getBody(): array

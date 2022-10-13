@@ -15,7 +15,6 @@ class PageCreateRequest implements Request
     protected ?string $meta_title;
     protected ?string $meta_description;
     protected ?string $meta_keywords;
-    protected ?string $url;
     protected ?bool   $active;
     protected ?string $created_at;
     protected ?string $updated_at;
@@ -25,13 +24,12 @@ class PageCreateRequest implements Request
         ?string $name,
         ?string $description,
         ?string $template,
-        ?array  $faq,
+        ?array $faq,
         ?string $slug,
         ?string $meta_title,
         ?string $meta_description,
         ?string $meta_keywords,
-        ?string $url,
-        ?bool   $active,
+        ?bool $active,
         ?string $created_at,
         ?string $updated_at
     ) {
@@ -44,7 +42,6 @@ class PageCreateRequest implements Request
         $this->meta_title = $meta_title;
         $this->meta_description = $meta_description;
         $this->meta_keywords = $meta_keywords;
-        $this->url = $url;
         $this->active = $active;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
@@ -62,7 +59,6 @@ class PageCreateRequest implements Request
             "meta_title" => $this->meta_title,
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
-            "url" => $this->url,
             "active" => $this->active,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at

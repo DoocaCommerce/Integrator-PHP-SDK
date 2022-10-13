@@ -7,7 +7,7 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class BlogPostUpdateRequest implements Request
 {
     protected int $id;
-    protected int $blog_category_id;
+    protected int $post_category_id;
     protected ?string $name;
     protected ?string $description;
     protected ?array $image;
@@ -16,12 +16,12 @@ class BlogPostUpdateRequest implements Request
     protected ?string $meta_title;
     protected ?string $meta_description;
     protected ?string $meta_keywords;
-    protected ?string $url;
     protected ?bool $active;
+    protected ?string $updated_at;
 
     public function __construct(
         int $id,
-        int $blog_category_id,
+        int $post_category_id,
         ?string $name,
         ?string $description,
         ?array $image,
@@ -30,11 +30,11 @@ class BlogPostUpdateRequest implements Request
         ?string $meta_title,
         ?string $meta_description,
         ?string $meta_keywords,
-        ?string $url,
-        ?bool $active
+        ?bool $active,
+        ?string $updated_at
     ) {
         $this->id = $id;
-        $this->blog_category_id = $blog_category_id;
+        $this->post_category_id = $post_category_id;
         $this->name = $name;
         $this->description = $description;
         $this->image = $image;
@@ -43,15 +43,15 @@ class BlogPostUpdateRequest implements Request
         $this->meta_title = $meta_title;
         $this->meta_description = $meta_description;
         $this->meta_keywords = $meta_keywords;
-        $this->url = $url;
         $this->active = $active;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
     {
         return [
             "id" => $this->id,
-            "post_category_id" => $this->blog_category_id,
+            "post_category_id" => $this->post_category_id,
             "name" => $this->name,
             "description" => $this->description,
             "image" => $this->image,
@@ -60,8 +60,8 @@ class BlogPostUpdateRequest implements Request
             "meta_title" => $this->meta_title,
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
-            "url" => $this->url,
-            "active" => $this->active
+            "active" => $this->active,
+            "updated_at" => $this->updated_at,
         ];
     }
 

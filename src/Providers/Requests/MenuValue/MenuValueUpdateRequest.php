@@ -27,21 +27,21 @@ class MenuValueUpdateRequest implements Request
     public function __construct(
         int $id,
         ?int $menu_id,
-		?int $parent_id,
-		?int $category_id,
-		?int $brand_id,
-		?int $hotsite_id,
-		?int $page_id,
-		?string $name,
-		?string $menu_type,
-		?string $link,
-		?string $image,
-		bool $is_featured = false,
-		?string $banner,
-		?string $banner_link,
-		?string $slug,
-		bool $active = true,
-		?int $position = null
+        ?int $parent_id,
+        ?int $category_id,
+        ?int $brand_id,
+        ?int $hotsite_id,
+        ?int $page_id,
+        ?string $name,
+        ?string $menu_type,
+        ?string $link,
+        ?string $image,
+        bool $is_featured = false,
+        ?string $banner,
+        ?string $banner_link,
+        ?string $slug,
+        bool $active = true,
+        ?int $position = null
     ) {
         $this->id = $id;
         $this->menu_id = $menu_id;

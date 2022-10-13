@@ -6,64 +6,68 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class VariationCreateRequest implements Request
 {
-    protected ?int $id;
-    protected ?int $product_id;
-    protected ?int $color_id = null;
-    protected ?int $color_secondary_id = null;
-    protected ?int $attribute_value_id = null;
-    protected ?int $attribute_value_secondary_id = null;
-    protected ?string $external_id = null;
-    protected ?string $grid_id = null;
-    protected ?string $reference = null;
-    protected ?string $sku = null;
-    protected ?string $gtin = null;
-    protected ?string $mpn = null;
-    protected ?float $price = null;
-    protected ?float $price_compare = null;
-    protected ?float $price_cost = null;
-    protected ?float $special_price = null;
-    protected ?float $weight = null;
-    protected ?float $depth = null;
-    protected ?float $width = null;
-    protected ?float $height = null;
-    protected ?int $additional_shipping_time = null;
-    protected ?int $position = null;
-    protected bool $active = true;
-    protected ?array $color = null;
-    protected ?array $attribute = null;
-    protected ?array $attribute_secondary = null;
-    protected ?string $created_at = null;
-    protected ?string $updated_at = null;
+    protected $id;
+    protected $product_id;
+    protected $color_id;
+    protected $color_secondary_id;
+    protected $attribute_value_id;
+    protected $attribute_value_secondary_id;
+    protected $external_id;
+    protected $reference;
+    protected $sku;
+    protected $gtin;
+    protected $mpn;
+    protected $price;
+    protected $price_compare;
+    protected $cost;
+    protected $has_custom_dimentions;
+    protected $weight;
+    protected $depth;
+    protected $width;
+    protected $height;
+    protected $additional_shipping_time;
+    protected $images;
+    protected $position;
+    protected $created_at;
+    protected $updated_at;
+    protected $active;
+    protected $balance;
+    protected $reserved_balance;
+    protected $color;
+    protected $attribute;
+    protected $attribute_secondary;
 
     public function __construct(
-        int $id,
-        ?int $product_id,
-        ?int $color_id = null,
-        ?int $color_secondary_id = null,
-        ?int $attribute_value_id = null,
-        ?int $attribute_value_secondary_id = null,
-        ?string $external_id = null,
-        ?string $grid_id = null,
-        ?string $reference = null,
-        ?string $sku = null,
-        ?string $gtin = null,
-        ?string $mpn = null,
-        ?float $price = null,
-        ?float $price_compare = null,
-        ?float $price_cost = null,
-        ?float $special_price = null,
-        ?float $weight = null,
-        ?float $depth = null,
-        ?float $width = null,
-        ?float $height = null,
-        ?int $additional_shipping_time = null,
-        ?int $position = null,
-        bool $active = true,
-        ?array $color = null,
-        ?array $attribute = null,
-        ?array $attribute_secondary = null,
-        ?string $created_at = null,
-        ?string $updated_at = null
+        $id,
+        $product_id,
+        $color_id,
+        $color_secondary_id,
+        $attribute_value_id,
+        $attribute_value_secondary_id,
+        $external_id,
+        $reference,
+        $sku,
+        $gtin,
+        $mpn,
+        $price,
+        $price_compare,
+        $cost,
+        $has_custom_dimentions,
+        $weight,
+        $depth,
+        $width,
+        $height,
+        $additional_shipping_time,
+        $images,
+        $position,
+        $created_at,
+        $updated_at,
+        $active,
+        $balance,
+        $reserved_balance,
+        $color,
+        $attribute,
+        $attribute_secondary
     ) {
         $this->id = $id;
         $this->product_id = $product_id;
@@ -72,60 +76,64 @@ class VariationCreateRequest implements Request
         $this->attribute_value_id = $attribute_value_id;
         $this->attribute_value_secondary_id = $attribute_value_secondary_id;
         $this->external_id = $external_id;
-        $this->grid_id = $grid_id;
         $this->reference = $reference;
         $this->sku = $sku;
         $this->gtin = $gtin;
         $this->mpn = $mpn;
         $this->price = $price;
         $this->price_compare = $price_compare;
-        $this->price_cost = $price_cost;
-        $this->special_price = $special_price;
+        $this->cost = $cost;
+        $this->has_custom_dimentions = $has_custom_dimentions;
         $this->weight = $weight;
         $this->depth = $depth;
         $this->width = $width;
         $this->height = $height;
         $this->additional_shipping_time = $additional_shipping_time;
+        $this->images = $images;
         $this->position = $position;
+        $this->created_at = $created_at;
+        $this->updated_at = $updated_at;
         $this->active = $active;
+        $this->balance = $balance;
+        $this->reserved_balance = $reserved_balance;
         $this->color = $color;
         $this->attribute = $attribute;
         $this->attribute_secondary = $attribute_secondary;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
     {
         return [
-            "id" => $this->id,
+            'id' => $this->id,
             'product_id' => $this->product_id,
             'color_id' => $this->color_id,
             'color_secondary_id' => $this->color_secondary_id,
             'attribute_value_id' => $this->attribute_value_id,
             'attribute_value_secondary_id' => $this->attribute_value_secondary_id,
             'external_id' => $this->external_id,
-            'grid_id' => $this->grid_id,
             'reference' => $this->reference,
             'sku' => $this->sku,
             'gtin' => $this->gtin,
             'mpn' => $this->mpn,
             'price' => $this->price,
             'price_compare' => $this->price_compare,
-            'cost' => $this->price_cost,
-            'special_price' => $this->special_price,
+            'cost' => $this->cost,
+            'has_custom_dimentions' => $this->has_custom_dimentions,
             'weight' => $this->weight,
             'depth' => $this->depth,
             'width' => $this->width,
             'height' => $this->height,
             'additional_shipping_time' => $this->additional_shipping_time,
+            'images' => $this->images,
             'position' => $this->position,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
             'active' => $this->active,
+            'balance' => $this->balance,
+            'reserved_balance' => $this->reserved_balance,
             'color' => $this->color,
             'attribute' => $this->attribute,
             'attribute_secondary' => $this->attribute_secondary,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
         ];
     }
 

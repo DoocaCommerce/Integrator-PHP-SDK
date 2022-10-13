@@ -16,7 +16,6 @@ class CategoryUpdateRequest implements Request
     protected ?array $banner = null;
     protected ?string $banner_link = null;
     protected ?string $breadcrumb = null;
-    protected ?array $breadcrumbs = null;
     protected ?int $depth;
     protected ?int $google_taxonomy_id = null;
     protected string $slug;
@@ -25,7 +24,8 @@ class CategoryUpdateRequest implements Request
     protected ?string $meta_keywords = null;
     protected ?int $position = null;
     protected bool $active = true;
-    protected ?string $url = null;
+    protected ?string $created_at = null;
+    protected ?string $updated_at = null;
 
     public function __construct(
         ?int $parent_id = null,
@@ -38,7 +38,6 @@ class CategoryUpdateRequest implements Request
         ?array $banner = null,
         ?string $banner_link = null,
         ?string $breadcrumb = null,
-        ?array $breadcrumbs = null,
         ?int $depth,
         ?int $google_taxonomy_id = null,
         string $slug,
@@ -47,7 +46,8 @@ class CategoryUpdateRequest implements Request
         ?string $meta_keywords = null,
         ?int $position = null,
         bool $active = true,
-        ?string $url = null
+        ?string $created_at = null,
+        ?string $updated_at = null
     ) {
         $this->id = $id;
         $this->parent_id = $parent_id;
@@ -59,7 +59,6 @@ class CategoryUpdateRequest implements Request
         $this->banner = $banner;
         $this->banner_link = $banner_link;
         $this->breadcrumb = $breadcrumb;
-        $this->breadcrumbs = $breadcrumbs;
         $this->depth = $depth;
         $this->google_taxonomy_id = $google_taxonomy_id;
         $this->slug = $slug;
@@ -67,8 +66,9 @@ class CategoryUpdateRequest implements Request
         $this->meta_description = $meta_description;
         $this->meta_keywords = $meta_keywords;
         $this->position = $position;
-        $this->url = $url;
         $this->active = $active;
+        $this->created_at = $created_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -84,7 +84,6 @@ class CategoryUpdateRequest implements Request
             "banner" => $this->banner,
             "banner_link" => $this->banner_link,
             "breadcrumb" => $this->breadcrumb,
-            "breadcrumbs" => $this->breadcrumbs,
             "depth" => $this->depth,
             "google_taxonomy_id" => $this->google_taxonomy_id,
             "slug" => $this->slug,
@@ -92,8 +91,9 @@ class CategoryUpdateRequest implements Request
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
             "position" => $this->position,
-            "url" => $this->url,
-            "active" => $this->active
+            "active" => $this->active,
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at,
         ];
     }
 

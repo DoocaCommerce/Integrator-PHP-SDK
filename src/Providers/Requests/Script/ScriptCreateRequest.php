@@ -7,29 +7,29 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class ScriptCreateRequest implements Request
 {
     protected int $id;
-    protected string  $name;
+    protected ?string $name;
     protected ?string $description = null;
-    protected string  $location;
-    protected string  $page;
+    protected ?string $location;
+    protected ?string $page;
     protected ?string $load_method;
     protected ?string $url = null;
     protected ?string $content = null;
-    protected string  $category;
-    protected ?int    $position = null;
-    protected bool    $active = true;
+    protected ?string $category;
+    protected ?int $position = null;
+    protected bool $active = true;
     protected ?string $created_at;
     protected ?string $updated_at;
 
     public function __construct(
         int $id,
-        string  $name,
+        ?string  $name,
         ?string $description = null,
-        string  $location,
-        string  $page,
-        ?string $load_method,
+        ?string $location = null,
+        ?string $page = null,
+        ?string $load_method = null,
         ?string $url = null,
         ?string $content = null,
-        string  $category,
+        ?string $category = null,
         ?int    $position = null,
         bool    $active = true,
         ?string $created_at,

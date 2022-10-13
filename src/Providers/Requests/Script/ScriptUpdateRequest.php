@@ -7,29 +7,33 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class ScriptUpdateRequest implements Request
 {
     protected int $id;
-    protected ?string  $name;
+    protected ?string $name;
     protected ?string $description = null;
-    protected ?string  $location;
-    protected ?string  $page;
+    protected ?string $location;
+    protected ?string $page;
     protected ?string $load_method;
     protected ?string $url = null;
     protected ?string $content = null;
-    protected ?string  $category;
-    protected ?int    $position = null;
-    protected bool    $active = true;
+    protected ?string $category;
+    protected ?int $position = null;
+    protected bool $active = true;
+    protected ?string $created_at = null;
+    protected ?string $updated_at = null;
 
     public function __construct(
         int $id,
-        ?string  $name,
+        ?string $name,
         ?string $description = null,
-        ?string  $location,
-        ?string  $page,
+        ?string $location,
+        ?string $page,
         ?string $load_method,
         ?string $url = null,
         ?string $content = null,
-        ?string  $category,
-        ?int    $position = null,
-        bool    $active = true
+        ?string $category,
+        ?int $position = null,
+        bool $active = true,
+        ?string $created_at = null,
+        ?string $updated_at = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -42,6 +46,8 @@ class ScriptUpdateRequest implements Request
         $this->category = $category;
         $this->position = $position;
         $this->active = $active;
+        $this->created_at = $created_at;
+        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
@@ -57,7 +63,9 @@ class ScriptUpdateRequest implements Request
             "content" => $this->content,
             "category" => $this->category,
             "position" => $this->position,
-            "active" => $this->active
+            "active" => $this->active,
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at,
         ];
     }
 

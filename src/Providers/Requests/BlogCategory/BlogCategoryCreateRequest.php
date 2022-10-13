@@ -13,7 +13,6 @@ class BlogCategoryCreateRequest implements Request
     protected ?string $meta_description;
     protected ?string $meta_keywords;
     protected ?int $posts_count;
-    protected ?string $url;
     protected ?int $position;
     protected ?bool $active;
     protected ?string $created_at;
@@ -28,7 +27,6 @@ class BlogCategoryCreateRequest implements Request
         ?string $meta_description,
         ?string $meta_keywords,
         ?int $posts_count,
-        ?string $url,
         ?int $position,
         ?bool $active,
         ?string $created_at,
@@ -42,7 +40,6 @@ class BlogCategoryCreateRequest implements Request
         $this->meta_description = $meta_description;
         $this->meta_keywords = $meta_keywords;
         $this->position = $position;
-        $this->url = $url;
         $this->posts_count = $posts_count;
         $this->active = $active;
         $this->created_at = $created_at;
@@ -60,7 +57,6 @@ class BlogCategoryCreateRequest implements Request
             "meta_description" => $this->meta_description,
             "meta_keywords" => $this->meta_keywords,
             "position" => $this->position,
-            "url" => $this->url,
             "posts_count" => $this->posts_count,
             "active" => $this->active,
             "created_at" => $this->created_at,
