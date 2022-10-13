@@ -52,7 +52,7 @@ class CategoryCreateRequest implements Request
         $this->id = $id;
         $this->parent_id = $parent_id;
         $this->hotsite_id = $hotsite_id;
-        $this->hotsite_id = $external_id;
+        $this->external_id = $external_id;
         $this->name = $name;
         $this->description = $description;
         $this->image = $image;
