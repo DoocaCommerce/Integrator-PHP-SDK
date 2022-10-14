@@ -6,173 +6,127 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class ShopCreateRequest implements Request
 {
-    protected int $id;
-    protected ?int $partner_id = null;
-    protected ?int $customer_service_cell_id = null;
-    protected ?int $superlogica_id = null;
-    protected ?string $name = null;
-    protected ?string $phrase = null;
-    protected ?string $description = null;
-    protected ?string $keywords = null;
-    protected string $slug;
-    protected ?string $email = null;
-    protected ?string $email_from = null;
-    protected ?string $industry = null;
-    protected ?string $knowledge = null;
-    protected ?string $sales_urgency = null;
-    protected ?string $rating = null;
-    protected ?bool $already_selling = null;
-    protected ?string $already_selling_system = null;
-    protected ?string $ecomerce_knowledge = null;
-    protected ?string $domain = null;
-    protected ?string $domain_installed_at = null;
-    protected ?int $azion_domain_id = null;
-    protected ?int $azion_certificate_id = null;
-    protected ?bool $ssl = null;
-    protected ?bool $redirect_temporary = false;
-    protected ?int $shipping_time_additional = null;
-    protected ?int $shipping_time_additional_kit = null;
-    protected ?string $shipping_restriction_message = null;
-    protected ?string $append_to_head = null;
-    protected ?string $append_to_body = null;
-    protected ?int $theme_id = null;
-    protected ?string $policy_footer = null;
-    protected ?string $company = null;
-    protected ?string $cgc = null;
-    protected ?string $zipcode = null;
-    protected ?string $city = null;
-    protected ?string $state = null;
-    protected ?string $street = null;
-    protected ?string $number = null;
-    protected ?string $detail = null;
-    protected ?string $district = null;
-    protected ?string $phone = null;
-    protected ?bool $checkout_note_active = false;
-    protected ?string $checkout_note_label = null;
-    protected ?bool $catalog = false;
-    protected ?string $customer_register_for = null;
-    protected ?string $customer_register_approves = null;
-    protected ?bool $customer_register_company = true;
-    protected ?bool $customer_register_individual = true;
-    protected ?bool $facebook_connect = false;
-    protected ?bool $google_connect = false;
-    protected ?int $terms_user_id = null;
-    protected ?string $terms_accepted_at = null;
-    protected ?int $users_count = null;
-    protected ?int $products_count = null;
-    protected ?array $schedule_delivery = null;
-    protected ?array $checkout_options = null;
-    protected ?array $bagy_apps = null;
-    protected ?int $phone_service_code = null;
-    protected ?string $suspended_at = null;
-    protected ?string $canceled_at = null;
-    protected ?bool $active = true;
-    protected ?bool $enable_beta = false;
-    protected ?string $trial_ends_at = null;
-    protected ?bool $trial_modal = false;
-    protected ?string $organization = null;
-    protected ?string $utm_campaign = null;
-    protected ?bool $beta_checkout = false;
-    protected ?bool $beta_admin = false;
-    protected ?string $registration_completed_at = null;
-    protected ?string $anonymized_at = null;
-    protected ?bool $gift_wrapping_active = false;
-    protected ?float $gift_wrapping_price = null;
-    protected ?array $notifications = null;
-    protected ?array $shop_marketplace = null;
-    protected ?array $tracker_google_analytics = null;
-    protected ?array $tracker_google_conversion = null;
-    protected ?bool $ideris_connect = false;
-    protected ?array $tracker_facebook_pixel = null;
-    protected ?string $created_at;
-    protected ?string $updated_at;
+    protected $id;
+    protected $partner_id;
+    protected $name;
+    protected $phrase;
+    protected $description;
+    protected $keywords;
+    protected $slug;
+    protected $email;
+    protected $email_from;
+    protected $industry;
+    protected $knowledge;
+    protected $sales_urgency;
+    protected $domain;
+    protected $ssl;
+    protected $redirect_temporary;
+    protected $shipping_time_additional;
+    protected $shipping_time_additional_kit;
+    protected $shipping_restriction_message;
+    protected $append_to_head;
+    protected $append_to_body;
+    protected $theme_id;
+    protected $policy_footer;
+    protected $company;
+    protected $cgc;
+    protected $zipcode;
+    protected $city;
+    protected $state;
+    protected $street;
+    protected $number;
+    protected $detail;
+    protected $district;
+    protected $phone;
+    protected $checkout_note_active;
+    protected $checkout_note_label;
+    protected $catalog;
+    protected $customer_register_for;
+    protected $customer_register_approves;
+    protected $customer_register_company;
+    protected $customer_register_individual;
+    protected $facebook_connect;
+    protected $google_connect;
+    protected $schedule_delivery;
+    protected $checkout_options;
+    protected $suspended_at;
+    protected $canceled_at;
+    protected $active;
+    protected $enable_beta;
+    protected $trial_ends_at;
+    protected $trial_modal;
+    protected $organization;
+    protected $beta_checkout;
+    protected $beta_admin;
+    protected $gift_wrapping_active;
+    protected $gift_wrapping_price;
+    protected $notifications;
+    protected $tracker_google_analytics;
+    protected $tracker_google_conversion;
+    protected $tracker_facebook_pixel;
 
     public function __construct(
-        int $id,
-        ?int $partner_id = null,
-        ?int $customer_service_cell_id = null,
-        ?int $superlogica_id = null,
-        ?string $name = null,
-        ?string $phrase = null,
-        ?string $description = null,
-        ?string $keywords = null,
-        string $slug,
-        ?string $email = null,
-        ?string $email_from = null,
-        ?string $industry = null,
-        ?string $knowledge = null,
-        ?string $sales_urgency = null,
-        ?string $rating = null,
-        ?bool $already_selling = null,
-        ?string $already_selling_system = null,
-        ?string $ecomerce_knowledge = null,
-        ?string $domain = null,
-        ?string $domain_installed_at = null,
-        ?int $azion_domain_id = null,
-        ?int $azion_certificate_id = null,
-        ?bool $ssl = null,
-        ?bool $redirect_temporary = false,
-        ?int $shipping_time_additional = null,
-        ?int $shipping_time_additional_kit = null,
-        ?string $shipping_restriction_message = null,
-        ?string $append_to_head = null,
-        ?string $append_to_body = null,
-        ?int $theme_id = null,
-        ?string $policy_footer = null,
-        ?string $company = null,
-        ?string $cgc = null,
-        ?string $zipcode = null,
-        ?string $city = null,
-        ?string $state = null,
-        ?string $street = null,
-        ?string $number = null,
-        ?string $detail = null,
-        ?string $district = null,
-        ?string $phone = null,
-        ?bool $checkout_note_active = false,
-        ?string $checkout_note_label = null,
-        ?bool $catalog = false,
-        ?string $customer_register_for = null,
-        ?string $customer_register_approves = null,
-        ?bool $customer_register_company = true,
-        ?bool $customer_register_individual = true,
-        ?bool $facebook_connect = false,
-        ?bool $google_connect = false,
-        ?int $terms_user_id = null,
-        ?string $terms_accepted_at = null,
-        ?int $users_count = null,
-        ?int $products_count = null,
-        ?array $schedule_delivery = null,
-        ?array $checkout_options = null,
-        ?array $bagy_apps = null,
-        ?int $phone_service_code = null,
-        ?string $suspended_at = null,
-        ?string $canceled_at = null,
-        ?bool $active = true,
-        ?bool $enable_beta = false,
-        ?string $trial_ends_at = null,
-        ?bool $trial_modal = false,
-        ?string $organization = null,
-        ?string $utm_campaign = null,
-        ?bool $beta_checkout = false,
-        ?bool $beta_admin = false,
-        ?string $registration_completed_at = null,
-        ?string $anonymized_at = null,
-        ?bool $gift_wrapping_active = false,
-        ?float $gift_wrapping_price = null,
-        ?array $notifications = null,
-        ?array $shop_marketplace = null,
-        ?array $tracker_google_analytics = null,
-        ?array $tracker_google_conversion = null,
-        ?bool $ideris_connect = false,
-        ?array $tracker_facebook_pixel = null,
-        ?string $created_at,
-        ?string $updated_at
+        $id,
+        $partner_id,
+        $name,
+        $phrase,
+        $description,
+        $keywords,
+        $slug,
+        $email,
+        $email_from,
+        $industry,
+        $knowledge,
+        $sales_urgency,
+        $domain,
+        $ssl,
+        $redirect_temporary,
+        $shipping_time_additional,
+        $shipping_time_additional_kit,
+        $shipping_restriction_message,
+        $append_to_head,
+        $append_to_body,
+        $theme_id,
+        $policy_footer,
+        $company,
+        $cgc,
+        $zipcode,
+        $city,
+        $state,
+        $street,
+        $number,
+        $detail,
+        $district,
+        $phone,
+        $checkout_note_active,
+        $checkout_note_label,
+        $catalog,
+        $customer_register_for,
+        $customer_register_approves,
+        $customer_register_company,
+        $customer_register_individual,
+        $facebook_connect,
+        $google_connect,
+        $schedule_delivery,
+        $checkout_options,
+        $suspended_at,
+        $canceled_at,
+        $active,
+        $enable_beta,
+        $trial_ends_at,
+        $trial_modal,
+        $organization,
+        $beta_checkout,
+        $beta_admin,
+        $gift_wrapping_active,
+        $gift_wrapping_price,
+        $notifications,
+        $tracker_google_analytics,
+        $tracker_google_conversion,
+        $tracker_facebook_pixel
     ) {
         $this->id = $id;
         $this->partner_id = $partner_id;
-        $this->customer_service_cell_id = $customer_service_cell_id;
-        $this->superlogica_id = $superlogica_id;
         $this->name = $name;
         $this->phrase = $phrase;
         $this->description = $description;
@@ -183,14 +137,7 @@ class ShopCreateRequest implements Request
         $this->industry = $industry;
         $this->knowledge = $knowledge;
         $this->sales_urgency = $sales_urgency;
-        $this->rating = $rating;
-        $this->already_selling = $already_selling;
-        $this->already_selling_system = $already_selling_system;
-        $this->ecomerce_knowledge = $ecomerce_knowledge;
         $this->domain = $domain;
-        $this->domain_installed_at = $domain_installed_at;
-        $this->azion_domain_id = $azion_domain_id;
-        $this->azion_certificate_id = $azion_certificate_id;
         $this->ssl = $ssl;
         $this->redirect_temporary = $redirect_temporary;
         $this->shipping_time_additional = $shipping_time_additional;
@@ -219,14 +166,8 @@ class ShopCreateRequest implements Request
         $this->customer_register_individual = $customer_register_individual;
         $this->facebook_connect = $facebook_connect;
         $this->google_connect = $google_connect;
-        $this->terms_user_id = $terms_user_id;
-        $this->terms_accepted_at = $terms_accepted_at;
-        $this->users_count = $users_count;
-        $this->products_count = $products_count;
         $this->schedule_delivery = $schedule_delivery;
         $this->checkout_options = $checkout_options;
-        $this->bagy_apps = $bagy_apps;
-        $this->phone_service_code = $phone_service_code;
         $this->suspended_at = $suspended_at;
         $this->canceled_at = $canceled_at;
         $this->active = $active;
@@ -234,106 +175,77 @@ class ShopCreateRequest implements Request
         $this->trial_ends_at = $trial_ends_at;
         $this->trial_modal = $trial_modal;
         $this->organization = $organization;
-        $this->utm_campaign = $utm_campaign;
         $this->beta_checkout = $beta_checkout;
         $this->beta_admin = $beta_admin;
-        $this->registration_completed_at = $registration_completed_at;
-        $this->anonymized_at = $anonymized_at;
         $this->gift_wrapping_active = $gift_wrapping_active;
         $this->gift_wrapping_price = $gift_wrapping_price;
         $this->notifications = $notifications;
-        $this->shop_marketplace = $shop_marketplace;
         $this->tracker_google_analytics = $tracker_google_analytics;
         $this->tracker_google_conversion = $tracker_google_conversion;
-        $this->ideris_connect = $ideris_connect;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
     }
 
     public function toArray(): array
     {
         return [
-            "id" => $this->id,
-            "partner_id" => $this->partner_id,
-            "customer_service_cell_id" => $this->customer_service_cell_id,
-            "superlogica_id" => $this->superlogica_id,
-            "name" => $this->name,
-            "phrase" => $this->phrase,
-            "description" => $this->description,
-            "keywords" => $this->keywords,
-            "slug" => $this->slug,
-            "email" => $this->email,
-            "email_from" => $this->email_from,
-            "industry" => $this->industry,
-            "knowledge" => $this->knowledge,
-            "sales_urgency" => $this->sales_urgency,
-            "rating" => $this->rating,
-            "already_selling" => $this->already_selling,
-            "already_selling_system" => $this->already_selling_system,
-            "ecomerce_knowledge" => $this->ecomerce_knowledge,
-            "domain" => $this->domain,
-            "domain_installed_at" => $this->domain_installed_at,
-            "azion_domain_id" => $this->azion_domain_id,
-            "azion_certificate_id" => $this->azion_certificate_id,
-            "ssl" => $this->ssl,
-            "redirect_temporary" => $this->redirect_temporary,
-            "shipping_time_additional" => $this->shipping_time_additional,
-            "shipping_time_additional_kit" => $this->shipping_time_additional_kit,
-            "shipping_restriction_message" => $this->shipping_restriction_message,
-            "append_to_head" => $this->append_to_head,
-            "append_to_body" => $this->append_to_body,
-            "theme_id" => $this->theme_id,
-            "policy_footer" => $this->policy_footer,
-            "company" => $this->company,
-            "cgc" => $this->cgc,
-            "zipcode" => $this->zipcode,
-            "city" => $this->city,
-            "state" => $this->state,
-            "street" => $this->street,
-            "number" => $this->number,
-            "detail" => $this->detail,
-            "district" => $this->district,
-            "phone" => $this->phone,
-            "checkout_note_active" => $this->checkout_note_active,
-            "checkout_note_label" => $this->checkout_note_label,
-            "catalog" => $this->catalog,
-            "customer_register_for" => $this->customer_register_for,
-            "customer_register_approves" => $this->customer_register_approves,
-            "customer_register_company" => $this->customer_register_company,
-            "customer_register_individual" => $this->customer_register_individual,
-            "facebook_connect" => $this->facebook_connect,
-            "google_connect" => $this->google_connect,
-            "terms_user_id" => $this->terms_user_id,
-            "terms_accepted_at" => $this->terms_accepted_at,
-            "users_count" => $this->users_count,
-            "products_count" => $this->products_count,
-            "schedule_delivery" => $this->schedule_delivery,
-            "checkout_options" => $this->checkout_options,
-            "bagy_apps" => $this->bagy_apps,
-            "phone_service_code" => $this->phone_service_code,
-            "suspended_at" => $this->suspended_at,
-            "canceled_at" => $this->canceled_at,
-            "active" => $this->active,
-            "enable_beta" => $this->enable_beta,
-            "trial_ends_at" => $this->trial_ends_at,
-            "trial_modal" => $this->trial_modal,
-            "organization" => $this->organization,
-            "utm_campaign" => $this->utm_campaign,
-            "beta_checkout" => $this->beta_checkout,
-            "beta_admin" => $this->beta_admin,
-            "registration_completed_at" => $this->registration_completed_at,
-            "anonymized_at" => $this->anonymized_at,
-            "gift_wrapping_active" => $this->gift_wrapping_active,
-            "gift_wrapping_price" => $this->gift_wrapping_price,
-            "notifications" => $this->notifications,
-            "shop_marketplace" => $this->shop_marketplace,
-            "tracker_google_analytics" => $this->tracker_google_analytics,
-            "tracker_google_conversion" => $this->tracker_google_conversion,
-            "ideris_connect" => $this->ideris_connect,
-            "tracker_facebook_pixel" => $this->tracker_facebook_pixel,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
+            'id' => $this->id,
+            'partner_id' => $this->partner_id,
+            'name' => $this->name,
+            'phrase' => $this->phrase,
+            'description' => $this->description,
+            'keywords' => $this->keywords,
+            'slug' => $this->slug,
+            'email' => $this->email,
+            'email_from' => $this->email_from,
+            'industry' => $this->industry,
+            'knowledge' => $this->knowledge,
+            'sales_urgency' => $this->sales_urgency,
+            'domain' => $this->domain,
+            'ssl' => $this->ssl,
+            'redirect_temporary' => $this->redirect_temporary,
+            'shipping_time_additional' => $this->shipping_time_additional,
+            'shipping_time_additional_kit' => $this->shipping_time_additional_kit,
+            'shipping_restriction_message' => $this->shipping_restriction_message,
+            'append_to_head' => $this->append_to_head,
+            'append_to_body' => $this->append_to_body,
+            'theme_id' => $this->theme_id,
+            'policy_footer' => $this->policy_footer,
+            'company' => $this->company,
+            'cgc' => $this->cgc,
+            'zipcode' => $this->zipcode,
+            'city' => $this->city,
+            'state' => $this->state,
+            'street' => $this->street,
+            'number' => $this->number,
+            'detail' => $this->detail,
+            'district' => $this->district,
+            'phone' => $this->phone,
+            'checkout_note_active' => $this->checkout_note_active,
+            'checkout_note_label' => $this->checkout_note_label,
+            'catalog' => $this->catalog,
+            'customer_register_for' => $this->customer_register_for,
+            'customer_register_approves' => $this->customer_register_approves,
+            'customer_register_company' => $this->customer_register_company,
+            'customer_register_individual' => $this->customer_register_individual,
+            'facebook_connect' => $this->facebook_connect,
+            'google_connect' => $this->google_connect,
+            'schedule_delivery' => $this->schedule_delivery,
+            'checkout_options' => $this->checkout_options,
+            'suspended_at' => $this->suspended_at,
+            'canceled_at' => $this->canceled_at,
+            'active' => $this->active,
+            'enable_beta' => $this->enable_beta,
+            'trial_ends_at' => $this->trial_ends_at,
+            'trial_modal' => $this->trial_modal,
+            'organization' => $this->organization,
+            'beta_checkout' => $this->beta_checkout,
+            'beta_admin' => $this->beta_admin,
+            'gift_wrapping_active' => $this->gift_wrapping_active,
+            'gift_wrapping_price' => $this->gift_wrapping_price,
+            'notifications' => $this->notifications,
+            'tracker_google_analytics' => $this->tracker_google_analytics,
+            'tracker_google_conversion' => $this->tracker_google_conversion,
+            'tracker_facebook_pixel' => $this->tracker_facebook_pixel,
         ];
     }
 
