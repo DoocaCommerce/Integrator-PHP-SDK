@@ -40,7 +40,6 @@ class BlogCategoryUpdateRequest implements Request
         $this->meta_description = $meta_description;
         $this->meta_keywords = $meta_keywords;
         $this->position = $position;
-        $this->url = $url;
         $this->posts_count = $posts_count;
         $this->active = $active;
         $this->created_at = $created_at;

@@ -1,33 +1,33 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\BlogCategory;
+namespace DoocaCommerce\Integrator\Providers\Requests\Brand;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class BlogCategoryDeleteRequest implements Request
+class BrandSortRequest implements Request
 {
-    protected int $id;
+    protected ?array $data;
 
-    public function __construct(int $id)
+    public function __construct(?array $data = [])
     {
-        $this->id = $id;
+        $this->data = $data;
     }
 
     public function toArray(): array
     {
         return [
-            "id" => $this->id
+            'data' => $this->data
         ];
     }
 
     public function getMethod(): string
     {
-        return 'DELETE';
+        return 'PUT';
     }
 
     public function getPath(): string
     {
-        return 'integrator/import/blog-category';
+        return 'integrator/import/brand-sort';
     }
 
     public function getBody(): array

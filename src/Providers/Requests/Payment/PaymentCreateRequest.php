@@ -7,7 +7,6 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class PaymentCreateRequest implements Request
 {
     protected int $id;
-    protected ?int $shop_id;
     protected ?int $gateway_id;
     protected ?string $external_id;
     protected string $name;
@@ -34,7 +33,6 @@ class PaymentCreateRequest implements Request
 
     public function __construct(
         int $id,
-        ?int $shop_id,
         ?int $gateway_id,
         ?string $external_id,
         string $name,
@@ -60,7 +58,6 @@ class PaymentCreateRequest implements Request
         ?string $updated_at
     ) {
         $this->id = $id;
-        $this->shop_id = $shop_id;
         $this->gateway_id = $gateway_id;
         $this->external_id = $external_id;
         $this->name = $name;
@@ -90,7 +87,6 @@ class PaymentCreateRequest implements Request
     {
         return [
             'id' => $this->id,
-            'shop_id' => $this->shop_id,
             'gateway_id' => $this->gateway_id,
             'external_id' => $this->external_id,
             'name' => $this->name,
@@ -102,18 +98,18 @@ class PaymentCreateRequest implements Request
             'min_purchase' => $this->min_purchase,
             'max_purchase' => $this->max_purchase,
             'billet_min_discount_price' => $this->billet_min_discount_price,
-            'markup' => $this->markup,
+            'markup' => (float) $this->markup,
             'expire_days' => $this->expire_days,
             'soft_descriptor' => $this->soft_descriptor,
             'description' => $this->description,
             'instructions' => $this->instructions,
-            'active' => $this->active,
+            'active' => (bool) $this->active,
             'position' => $this->position,
-            'is_default' => $this->is_default,
+            'is_default' =>  (bool) $this->is_default,
             'show_only_instore_shipping' => $this->show_only_instore_shipping,
-            'deleted_at' => $this->deleted_at,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'deleted_at' => (string) $this->deleted_at,
+            'created_at' => (string) $this->created_at,
+            'updated_at' => (string) $this->updated_at,
         ];
     }
 

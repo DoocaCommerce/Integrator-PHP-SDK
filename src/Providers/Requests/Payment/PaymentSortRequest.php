@@ -1,34 +1,33 @@
 <?php
 
-namespace DoocaCommerce\Integrator\Providers\Requests\Group;
+namespace DoocaCommerce\Integrator\Providers\Requests\Payment;
 
 use DoocaCommerce\Integrator\Providers\Requests\Request;
 
-class GroupDeleteRequest implements Request
+class PaymentSortRequest implements Request
 {
-    protected int $id;
+    protected ?array $data;
 
-    public function __construct(
-        int $id
-    ) {
-        $this->id = $id;
+    public function __construct(?array $data = [])
+    {
+        $this->data = $data;
     }
 
     public function toArray(): array
     {
         return [
-            "id" => $this->id
+            'data' => $this->data
         ];
     }
 
     public function getMethod(): string
     {
-        return 'DELETE';
+        return 'PUT';
     }
 
     public function getPath(): string
     {
-        return 'integrator/import/group';
+        return 'integrator/import/payment-sort';
     }
 
     public function getBody(): array

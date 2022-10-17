@@ -7,7 +7,6 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 class ShopCreateRequest implements Request
 {
     protected $id;
-    protected $partner_id;
     protected $name;
     protected $phrase;
     protected $description;
@@ -53,21 +52,17 @@ class ShopCreateRequest implements Request
     protected $canceled_at;
     protected $active;
     protected $enable_beta;
-    protected $trial_ends_at;
-    protected $trial_modal;
     protected $organization;
     protected $beta_checkout;
     protected $beta_admin;
     protected $gift_wrapping_active;
     protected $gift_wrapping_price;
-    protected $notifications;
     protected $tracker_google_analytics;
     protected $tracker_google_conversion;
     protected $tracker_facebook_pixel;
 
     public function __construct(
         $id,
-        $partner_id,
         $name,
         $phrase,
         $description,
@@ -113,20 +108,16 @@ class ShopCreateRequest implements Request
         $canceled_at,
         $active,
         $enable_beta,
-        $trial_ends_at,
-        $trial_modal,
         $organization,
         $beta_checkout,
         $beta_admin,
         $gift_wrapping_active,
         $gift_wrapping_price,
-        $notifications,
         $tracker_google_analytics,
         $tracker_google_conversion,
         $tracker_facebook_pixel
     ) {
         $this->id = $id;
-        $this->partner_id = $partner_id;
         $this->name = $name;
         $this->phrase = $phrase;
         $this->description = $description;
@@ -172,14 +163,11 @@ class ShopCreateRequest implements Request
         $this->canceled_at = $canceled_at;
         $this->active = $active;
         $this->enable_beta = $enable_beta;
-        $this->trial_ends_at = $trial_ends_at;
-        $this->trial_modal = $trial_modal;
         $this->organization = $organization;
         $this->beta_checkout = $beta_checkout;
         $this->beta_admin = $beta_admin;
         $this->gift_wrapping_active = $gift_wrapping_active;
         $this->gift_wrapping_price = $gift_wrapping_price;
-        $this->notifications = $notifications;
         $this->tracker_google_analytics = $tracker_google_analytics;
         $this->tracker_google_conversion = $tracker_google_conversion;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
@@ -189,7 +177,6 @@ class ShopCreateRequest implements Request
     {
         return [
             'id' => $this->id,
-            'partner_id' => $this->partner_id,
             'name' => $this->name,
             'phrase' => $this->phrase,
             'description' => $this->description,
@@ -235,14 +222,11 @@ class ShopCreateRequest implements Request
             'canceled_at' => $this->canceled_at,
             'active' => $this->active,
             'enable_beta' => $this->enable_beta,
-            'trial_ends_at' => $this->trial_ends_at,
-            'trial_modal' => $this->trial_modal,
             'organization' => $this->organization,
             'beta_checkout' => $this->beta_checkout,
             'beta_admin' => $this->beta_admin,
             'gift_wrapping_active' => $this->gift_wrapping_active,
             'gift_wrapping_price' => $this->gift_wrapping_price,
-            'notifications' => $this->notifications,
             'tracker_google_analytics' => $this->tracker_google_analytics,
             'tracker_google_conversion' => $this->tracker_google_conversion,
             'tracker_facebook_pixel' => $this->tracker_facebook_pixel,
