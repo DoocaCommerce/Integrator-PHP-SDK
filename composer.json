@@ -1,26 +1,21 @@
 {
-    "name": "doocacommerce/integrator",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "DoocaCommerce\\Integrator\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "DoocaCommerce\\Integrator"
-            ]
-        }
-    },
-    "authors": [{
-        "name": "Dooca Commerce",
-        "email": "suporte@dooca.com.br"
-    }],
-    "minimum-stability": "dev",
-    "require": {
-        "php": "^7.4|^8.0",
-        "guzzlehttp/guzzle": "^6.3|^7.0.1"
+  "name": "doocacommerce/integrator",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "DoocaCommerce\\Integrator\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Dooca Commerce",
+      "email": "suporte@dooca.com.br"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.4|^8.0",
+    "guzzlehttp/guzzle": "^6.3|^7.0.1"
+  }
 }
