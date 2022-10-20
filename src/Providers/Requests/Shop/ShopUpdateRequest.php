@@ -60,6 +60,7 @@ class ShopUpdateRequest implements Request
     protected $tracker_google_analytics;
     protected $tracker_google_conversion;
     protected $tracker_facebook_pixel;
+    protected $platform_version;
 
     public function __construct(
         $id,
@@ -115,7 +116,8 @@ class ShopUpdateRequest implements Request
         $gift_wrapping_price,
         $tracker_google_analytics,
         $tracker_google_conversion,
-        $tracker_facebook_pixel
+        $tracker_facebook_pixel,
+        $platform_version,
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -171,6 +173,7 @@ class ShopUpdateRequest implements Request
         $this->tracker_google_analytics = $tracker_google_analytics;
         $this->tracker_google_conversion = $tracker_google_conversion;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
+        $this->platform_version = $platform_version;
     }
 
     public function toArray(): array
@@ -230,6 +233,7 @@ class ShopUpdateRequest implements Request
             'tracker_google_analytics' => $this->tracker_google_analytics,
             'tracker_google_conversion' => $this->tracker_google_conversion,
             'tracker_facebook_pixel' => $this->tracker_facebook_pixel,
+            'platform_version' => $this->platform_version,
         ];
     }
 
