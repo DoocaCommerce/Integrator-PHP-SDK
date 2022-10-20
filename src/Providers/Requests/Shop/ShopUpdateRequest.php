@@ -18,6 +18,7 @@ class ShopUpdateRequest implements Request
     protected $knowledge;
     protected $sales_urgency;
     protected $domain;
+    protected $temp_domain;
     protected $ssl;
     protected $redirect_temporary;
     protected $shipping_time_additional;
@@ -113,7 +114,8 @@ class ShopUpdateRequest implements Request
         $tracker_google_analytics,
         $tracker_google_conversion,
         $tracker_facebook_pixel,
-        $platform_version
+        $platform_version,
+        $temp_domain
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -168,6 +170,7 @@ class ShopUpdateRequest implements Request
         $this->tracker_google_conversion = $tracker_google_conversion;
         $this->tracker_facebook_pixel = $tracker_facebook_pixel;
         $this->platform_version = $platform_version;
+        $this->temp_domain = $temp_domain;
     }
 
     public function toArray(): array
@@ -226,6 +229,7 @@ class ShopUpdateRequest implements Request
             'tracker_google_conversion' => $this->tracker_google_conversion,
             'tracker_facebook_pixel' => $this->tracker_facebook_pixel,
             'platform_version' => $this->platform_version,
+            'temp_domain' => $this->temp_domain,
         ];
     }
 
