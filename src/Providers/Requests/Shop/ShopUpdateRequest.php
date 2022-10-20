@@ -51,10 +51,8 @@ class ShopUpdateRequest implements Request
     protected $suspended_at;
     protected $canceled_at;
     protected $active;
-    protected $enable_beta;
     protected $organization;
     protected $beta_checkout;
-    protected $beta_admin;
     protected $gift_wrapping_active;
     protected $gift_wrapping_price;
     protected $tracker_google_analytics;
@@ -108,16 +106,14 @@ class ShopUpdateRequest implements Request
         $suspended_at,
         $canceled_at,
         $active,
-        $enable_beta,
         $organization,
         $beta_checkout,
-        $beta_admin,
         $gift_wrapping_active,
         $gift_wrapping_price,
         $tracker_google_analytics,
         $tracker_google_conversion,
         $tracker_facebook_pixel,
-        $platform_version,
+        $platform_version
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -164,10 +160,8 @@ class ShopUpdateRequest implements Request
         $this->suspended_at = $suspended_at;
         $this->canceled_at = $canceled_at;
         $this->active = (bool) $active;
-        $this->enable_beta = (bool) $enable_beta;
         $this->organization = $organization;
         $this->beta_checkout = (bool) $beta_checkout;
-        $this->beta_admin = (bool) $beta_admin;
         $this->gift_wrapping_active = (bool) $gift_wrapping_active;
         $this->gift_wrapping_price = $gift_wrapping_price;
         $this->tracker_google_analytics = $tracker_google_analytics;
@@ -224,10 +218,8 @@ class ShopUpdateRequest implements Request
             'suspended_at' => $this->suspended_at,
             'canceled_at' => $this->canceled_at,
             'active' => $this->active,
-            'enable_beta' => $this->enable_beta,
             'organization' => $this->organization,
             'beta_checkout' => $this->beta_checkout,
-            'beta_admin' => $this->beta_admin,
             'gift_wrapping_active' => $this->gift_wrapping_active,
             'gift_wrapping_price' => $this->gift_wrapping_price,
             'tracker_google_analytics' => $this->tracker_google_analytics,
