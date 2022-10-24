@@ -21,7 +21,7 @@ class ProductImageDeleteRequest implements Request
     {
         return [
             'product_id' => $this->product_id,
-            'id' => $this->id,
+            'id' => $this->image_id,
         ];
     }
 
