@@ -20,7 +20,7 @@ class ProductImageDeleteRequest implements Request
     public function toArray(): array
     {
         return [
-            'product_id' => $this->id,
+            'product_id' => $this->product_id,
             'id' => $this->id,
         ];
     }
