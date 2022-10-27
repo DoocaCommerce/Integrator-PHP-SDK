@@ -6,21 +6,11 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class RedirectCreateRequest implements Request
 {
-    protected int $id;
-    protected string $url_from;
-    protected string $url_to;
-    protected ?string $created_at;
+    protected $data;
 
-    public function __construct(
-        int $id,
-        string $url_from,
-        string $url_to,
-        ?string $created_at
-    ) {
-        $this->id = $id;
-        $this->url_from = $url_from;
-        $this->url_to = $url_to;
-        $this->created_at = $created_at;
+    public function __construct($data)
+    {
+        $this->data = $data;
     }
 
     public function getMethod(): string
@@ -40,11 +30,6 @@ class RedirectCreateRequest implements Request
 
     public function toArray(): array
     {
-        return [
-            'id' => $this->id,
-            'url_from' => $this->url_from,
-            'url_to' => $this->url_to,
-            'created_at' => $this->created_at,
-        ];
+        return $this->data;
     }
 }

@@ -6,43 +6,18 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class AppCreateRequest implements Request
 {
-    protected $id;
-    protected $content;
-    protected $created_at;
-    protected $updated_at;
-    protected $name;
-    protected $slug;
-    protected $type;
+    protected $data;
 
     public function __construct(
-        $id,
-        $content,
-        $created_at,
-        $updated_at,
-        $name,
-        $slug,
-        $type
+        $data
+
     ) {
-        $this->id = $id;
-        $this->content = $content;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->type = $type;
+        $this->data = $data;
     }
 
     public function toArray(): array
     {
-        return [
-            "id" => $this->id,
-            "content" => $this->content,
-            "name" => $this->name,
-            "slug" => $this->slug,
-            "type" => $this->type,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at,
-        ];
+        return $this->data;
     }
 
     public function getMethod(): string

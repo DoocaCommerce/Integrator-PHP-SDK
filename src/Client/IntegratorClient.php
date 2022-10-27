@@ -18,13 +18,14 @@ class IntegratorClient
     ) {
         $this->client = new Client(
             [
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'dc-source' => 'api',
-                'dc-domain' => $domain
-            ],
-            'base_uri' => $baseUri,
-        ]);
+                'base_uri' => $baseUri,
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'dc-source' => 'api',
+                    'dc-domain' => $domain
+                ],
+            ]
+        );
 
         $this->token = $token;
     }
@@ -37,7 +38,7 @@ class IntegratorClient
     public function send(Request $request): Response
     {
         $header = ['authorization' => 'Bearer ' . $this->token];
-        
+
         $response = $this->client->request(
             $request->getMethod(),
             $request->getPath(),

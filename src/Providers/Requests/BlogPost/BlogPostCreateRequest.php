@@ -6,67 +6,17 @@ use DoocaCommerce\Integrator\Providers\Requests\Request;
 
 class BlogPostCreateRequest implements Request
 {
-    protected int $id;
-    protected int $post_category_id;
-    protected ?string $name;
-    protected ?string $description;
-    protected ?array $image;
-    protected ?string $slug;
-    protected ?string $tags;
-    protected ?string $meta_title;
-    protected ?string $meta_description;
-    protected ?string $meta_keywords;
-    protected ?bool $active;
-    protected ?string $created_at;
-    protected ?string $updated_at;
+    protected $data;
 
     public function __construct(
-        int $id,
-        int $post_category_id,
-        ?string $name,
-        ?string $description,
-        ?array $image,
-        ?string $slug,
-        ?string $tags,
-        ?string $meta_title,
-        ?string $meta_description,
-        ?string $meta_keywords,
-        ?bool $active,
-        ?string $created_at,
-        ?string $updated_at
+        $data
     ) {
-        $this->id = $id;
-        $this->post_category_id = $post_category_id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->image = $image;
-        $this->slug = $slug;
-        $this->tags = $tags;
-        $this->meta_title = $meta_title;
-        $this->meta_description = $meta_description;
-        $this->meta_keywords = $meta_keywords;
-        $this->active = $active;
-        $this->created_at = $created_at;
-        $this->updated_at = $updated_at;
+        $this->data = $data;
     }
 
     public function toArray(): array
     {
-        return [
-            "id" => $this->id,
-            "post_category_id" => $this->post_category_id,
-            "name" => $this->name,
-            "description" => $this->description,
-            "image" => $this->image,
-            "slug" => $this->slug,
-            "tags" => $this->tags,
-            "meta_title" => $this->meta_title,
-            "meta_description" => $this->meta_description,
-            "meta_keywords" => $this->meta_keywords,
-            "active" => $this->active,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at
-        ];
+        return $this->data;
     }
 
     public function getMethod(): string
